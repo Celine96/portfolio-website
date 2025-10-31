@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -10,198 +9,186 @@ import {
   Mail,
   Users,
   FileText,
-  Database,
   Bot,
   Zap,
   ArrowRight,
-  Filter,
+  Sparkles,
 } from "lucide-react";
 
 export default function Services() {
-  const [activeFilter, setActiveFilter] = useState("all");
-
-  const blueprints = [
+  const services = [
     {
       id: 1,
-      icon: Users,
-      title: "Automated Client Onboarding Funnel",
-      category: "sales",
-      description: "Streamline new client setup, contract signing, and welcome sequences with intelligent automation.",
-      flow: ["New Client", "AI Onboarder", "CRM", "Contract", "Welcome Email"],
-      value: "Reduces onboarding time by 80%",
-      color: "from-blue-500 to-cyan-500",
+      number: "01",
+      icon: TrendingUp,
+      title: "Lead Qualification & Scoring",
+      description: "Automate your sales pipeline with AI agents that instantly qualify leads, score prospects, and route hot opportunities to your team in real-time.",
+      features: [
+        "Intelligent lead scoring",
+        "Automated follow-ups",
+        "CRM integration",
+        "Real-time notifications"
+      ],
+      impact: "35% increase in conversions",
     },
     {
       id: 2,
-      icon: TrendingUp,
-      title: "Lead Scoring & Qualification System",
-      category: "sales",
-      description: "Automatically score and qualify inbound leads, route them to the right team, and trigger personalized follow-ups.",
-      flow: ["Lead Form", "AI Scorer", "Qualification", "Auto-Route", "CRM"],
-      value: "Increases conversion by 35%",
-      color: "from-green-500 to-emerald-500",
+      number: "02",
+      icon: Bot,
+      title: "Customer Support Automation",
+      description: "Build intelligent support systems that triage tickets, detect urgency, provide instant responses, and escalate complex issues automatically.",
+      features: [
+        "24/7 instant responses",
+        "Sentiment analysis",
+        "Smart ticket routing",
+        "Multi-language support"
+      ],
+      impact: "60% reduction in support costs",
     },
     {
       id: 3,
-      icon: Mail,
-      title: "Email Campaign Personalization Engine",
-      category: "marketing",
-      description: "Create hyper-personalized email sequences based on behavior, demographics, and engagement patterns.",
-      flow: ["User Data", "AI Writer", "Personalization", "Email Tool", "Analytics"],
-      value: "Boosts open rates by 50%",
-      color: "from-purple-500 to-pink-500",
+      number: "03",
+      icon: FileText,
+      title: "Content Generation & Repurposing",
+      description: "Transform single pieces of content into multi-platform campaigns. AI-powered workflows that maintain your brand voice across all channels.",
+      features: [
+        "Multi-format content",
+        "Brand voice consistency",
+        "SEO optimization",
+        "Automated publishing"
+      ],
+      impact: "400% more content output",
     },
     {
       id: 4,
-      icon: FileText,
-      title: "Content Repurposing Workflow",
-      category: "marketing",
-      description: "Transform long-form content into social posts, email sequences, and summaries automatically.",
-      flow: ["Blog Post", "AI Processor", "Multi-Format", "Social APIs", "Publish"],
-      value: "400% more content output",
-      color: "from-orange-500 to-red-500",
+      number: "04",
+      icon: Mail,
+      title: "Email Campaign Personalization",
+      description: "Create hyper-personalized email sequences that adapt based on behavior, demographics, and engagement patterns to maximize conversions.",
+      features: [
+        "Behavioral triggers",
+        "Dynamic personalization",
+        "A/B testing automation",
+        "Performance analytics"
+      ],
+      impact: "50% boost in open rates",
     },
     {
       id: 5,
-      icon: Bot,
-      title: "Customer Support Triage System",
-      category: "support",
-      description: "Intelligently categorize, prioritize, and auto-respond to support tickets using AI.",
-      flow: ["Ticket", "AI Triage", "Priority", "Auto-Reply", "Escalation"],
-      value: "60% reduction in ticket volume",
-      color: "from-indigo-500 to-purple-500",
+      number: "05",
+      icon: Users,
+      title: "Client Onboarding Automation",
+      description: "Streamline your entire onboarding process from contract signing to welcome sequences with intelligent automation that never drops the ball.",
+      features: [
+        "Document automation",
+        "Progress tracking",
+        "Custom workflows",
+        "Client portal integration"
+      ],
+      impact: "80% faster onboarding",
     },
     {
       id: 6,
-      icon: Database,
-      title: "Data Extraction & Sync Automation",
-      category: "admin",
-      description: "Extract data from various sources, clean it, and sync across your business tools automatically.",
-      flow: ["Data Source", "Extraction", "Cleaning", "Transform", "Sync"],
-      value: "Saves 15 hours per week",
-      color: "from-cyan-500 to-blue-500",
+      number: "06",
+      icon: Zap,
+      title: "Custom AI Agent Development",
+      description: "Build bespoke AI agents tailored to your unique business needs. From data extraction to decision-making, create your digital workforce.",
+      features: [
+        "Custom logic design",
+        "API integrations",
+        "Scalable architecture",
+        "Ongoing optimization"
+      ],
+      impact: "Solutions built for you",
     },
   ];
 
-  const filters = [
-    { id: "all", label: "All Solutions" },
-    { id: "sales", label: "Sales Automation" },
-    { id: "marketing", label: "Marketing Automation" },
-    { id: "support", label: "Customer Support" },
-    { id: "admin", label: "Data & Admin" },
-  ];
-
-  const filteredBlueprints = activeFilter === "all" 
-    ? blueprints 
-    : blueprints.filter(b => b.category === activeFilter);
-
   return (
-    <div className="pt-20 min-h-screen bg-[#0F0F0F]">
+    <div className="pt-20 min-h-screen bg-black">
       {/* Hero Section */}
       <section className="py-20 lg:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent-orange)]/5 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent-yellow)]/5 to-transparent" />
         
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--accent-yellow)] bg-[var(--accent-yellow)]/10 mb-6">
+              <Sparkles className="w-4 h-4 text-[var(--accent-yellow)]" />
+              <span className="text-sm font-medium text-[var(--accent-yellow)]">AUTOMATION SERVICES</span>
+            </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Your Path to <span className="text-[var(--accent-orange)]">Efficiency</span>
+              Your Path to <span className="text-[var(--accent-yellow)]">Efficiency</span>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Discover strategic AI automation solutions tailored to common business needs
+              Strategic AI automation solutions designed to transform your business operations
             </p>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Blueprints Section */}
-      <section className="py-20 bg-[#0F0F0F]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          {/* Filters */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap items-center justify-center gap-3 mb-16"
-          >
-            <Filter className="w-5 h-5 text-gray-400" />
-            {filters.map((filter) => (
-              <Button
-                key={filter.id}
-                variant={activeFilter === filter.id ? "default" : "outline"}
-                className={
-                  activeFilter === filter.id
-                    ? "bg-[var(--accent-orange)] hover:bg-[var(--accent-orange)]/90"
-                    : "border-gray-700 hover:border-[var(--accent-orange)] hover:bg-[var(--accent-orange)]/10"
-                }
-                onClick={() => setActiveFilter(filter.id)}
-              >
-                {filter.label}
-              </Button>
-            ))}
-          </motion.div>
-
-          {/* Blueprint Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredBlueprints.map((blueprint, index) => (
+          {/* Services Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
               <motion.div
-                key={blueprint.id}
+                key={service.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="bg-[var(--bg-card)] border-gray-800 p-6 h-full hover:border-[var(--accent-orange)] transition-all duration-300 group">
-                  {/* Icon */}
-                  <div className={`w-14 h-14 mb-6 rounded-xl bg-gradient-to-br ${blueprint.color} p-3 group-hover:scale-110 transition-transform`}>
-                    <blueprint.icon className="w-full h-full text-white" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-bold group-hover:text-[var(--accent-orange)] transition-colors">
-                      {blueprint.title}
-                    </h3>
-                    
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      {blueprint.description}
-                    </p>
-
-                    {/* Flow Diagram */}
-                    <div className="bg-[#0F0F0F] rounded-lg p-4 border border-gray-800">
-                      <p className="text-xs font-semibold text-gray-500 mb-2">HIGH-LEVEL FLOW</p>
-                      <div className="flex items-center gap-1 overflow-x-auto">
-                        {blueprint.flow.map((step, idx) => (
-                          <React.Fragment key={idx}>
-                            <span className="text-xs bg-gray-800 px-2 py-1 rounded whitespace-nowrap">
-                              {step}
-                            </span>
-                            {idx < blueprint.flow.length - 1 && (
-                              <ArrowRight className="w-3 h-3 text-[var(--accent-orange)] flex-shrink-0" />
-                            )}
-                          </React.Fragment>
-                        ))}
+                <Card className="bg-[#0A0A0A] border-gray-900 p-8 h-full hover:border-[var(--accent-yellow)] transition-all duration-300 group relative overflow-hidden">
+                  {/* Background gradient on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent-yellow)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  
+                  <div className="relative z-10 space-y-6">
+                    {/* Number and Icon */}
+                    <div className="flex items-start justify-between">
+                      <span className="text-6xl font-black text-[var(--accent-yellow)]/20 group-hover:text-[var(--accent-yellow)]/30 transition-colors">
+                        {service.number}
+                      </span>
+                      <div className="p-3 rounded-xl border border-gray-800 group-hover:border-[var(--accent-yellow)] transition-all">
+                        <service.icon className="w-6 h-6 text-[var(--accent-yellow)]" />
                       </div>
                     </div>
 
-                    {/* Value Proposition */}
-                    <Badge className="bg-green-500/10 text-green-500 border-green-500/20">
-                      <Zap className="w-3 h-3 mr-1" />
-                      {blueprint.value}
-                    </Badge>
+                    {/* Content */}
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-bold group-hover:text-[var(--accent-yellow)] transition-colors">
+                        {service.title}
+                      </h3>
+                      
+                      <p className="text-gray-400 leading-relaxed">
+                        {service.description}
+                      </p>
+
+                      {/* Features */}
+                      <ul className="space-y-2">
+                        {service.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-center gap-2 text-sm text-gray-500">
+                            <div className="w-1.5 h-1.5 bg-[var(--accent-yellow)] rounded-full" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* Impact Badge */}
+                      <div className="pt-4 border-t border-gray-900">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--accent-yellow)]/10 border border-[var(--accent-yellow)]/20">
+                          <Zap className="w-3 h-3 text-[var(--accent-yellow)]" />
+                          <span className="text-xs font-semibold text-[var(--accent-yellow)]">{service.impact}</span>
+                        </div>
+                      </div>
+                    </div>
 
                     {/* CTA */}
                     <Link to={createPageUrl("Contact")}>
                       <Button 
-                        variant="outline" 
-                        className="w-full border-gray-700 hover:border-[var(--accent-orange)] hover:bg-[var(--accent-orange)]/10 group-hover:border-[var(--accent-orange)]"
+                        variant="ghost" 
+                        className="w-full border border-gray-900 hover:border-[var(--accent-yellow)] hover:bg-[var(--accent-yellow)]/10 group-hover:border-[var(--accent-yellow)] transition-all"
                       >
-                        Request Custom Blueprint
+                        Get Started
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
                     </Link>
@@ -210,6 +197,28 @@ export default function Services() {
               </motion.div>
             ))}
           </div>
+
+          {/* CTA Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-20 text-center"
+          >
+            <Card className="bg-gradient-to-r from-[var(--accent-yellow)]/10 to-transparent border-[var(--accent-yellow)]/20 p-12">
+              <h3 className="text-3xl font-bold mb-4">Need a Custom Solution?</h3>
+              <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                Every business is unique. Let's build an automation strategy tailored specifically to your needs.
+              </p>
+              <Link to={createPageUrl("Contact")}>
+                <Button className="bg-[var(--accent-yellow)] hover:bg-[var(--accent-yellow)]/90 text-black font-bold py-6 px-12 text-lg hover:glow-effect transition-all">
+                  Schedule a Consultation
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </Link>
+            </Card>
+          </motion.div>
         </div>
       </section>
     </div>

@@ -57,10 +57,10 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-20 min-h-screen bg-[#0F0F0F]">
+    <div className="pt-20 min-h-screen bg-black">
       {/* Hero Section */}
       <section className="py-20 lg:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent-orange)]/5 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent-yellow)]/5 to-transparent" />
         
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
           <motion.div
@@ -69,12 +69,12 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--accent-orange)] bg-[var(--accent-orange)]/10 mb-6">
-              <Sparkles className="w-4 h-4 text-[var(--accent-orange)]" />
-              <span className="text-sm font-medium text-[var(--accent-orange)]">AI-POWERED CONTACT</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--accent-yellow)] bg-[var(--accent-yellow)]/10 mb-6">
+              <Sparkles className="w-4 h-4 text-[var(--accent-yellow)]" />
+              <span className="text-sm font-medium text-[var(--accent-yellow)]">AI-POWERED CONTACT</span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Ready to <span className="text-[var(--accent-orange)]">Transform</span> Your Business?
+              Ready to <span className="text-[var(--accent-yellow)]">Transform</span> Your Business?
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               This isn't just a contact form. Describe your most time-consuming, repetitive task. 
@@ -106,7 +106,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Card className="bg-[var(--bg-card)] border-gray-800 p-8 md:p-12">
+            <Card className="bg-[var(--bg-card)] border-gray-900 p-8 md:p-12">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
                 <div className="space-y-2">
@@ -121,7 +121,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="John Smith"
-                    className="bg-[#0F0F0F] border-gray-700 text-white placeholder:text-gray-500 focus:border-[var(--accent-orange)] h-12"
+                    className="bg-black border-gray-800 text-white placeholder:text-gray-600 focus:border-[var(--accent-yellow)] h-12"
                   />
                 </div>
 
@@ -138,7 +138,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="john@company.com"
-                    className="bg-[#0F0F0F] border-gray-700 text-white placeholder:text-gray-500 focus:border-[var(--accent-orange)] h-12"
+                    className="bg-black border-gray-800 text-white placeholder:text-gray-600 focus:border-[var(--accent-yellow)] h-12"
                   />
                 </div>
 
@@ -154,7 +154,7 @@ export default function Contact() {
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Your Company Name"
-                    className="bg-[#0F0F0F] border-gray-700 text-white placeholder:text-gray-500 focus:border-[var(--accent-orange)] h-12"
+                    className="bg-black border-gray-800 text-white placeholder:text-gray-600 focus:border-[var(--accent-yellow)] h-12"
                   />
                 </div>
 
@@ -170,7 +170,7 @@ export default function Contact() {
                     value={formData.task_description}
                     onChange={handleChange}
                     placeholder="Example: Every day, I manually copy data from customer emails into our CRM, categorize them by urgency, and send follow-up emails. This takes 2-3 hours daily..."
-                    className="bg-[#0F0F0F] border-gray-700 text-white placeholder:text-gray-500 focus:border-[var(--accent-orange)] min-h-[200px] resize-none"
+                    className="bg-black border-gray-800 text-white placeholder:text-gray-600 focus:border-[var(--accent-yellow)] min-h-[200px] resize-none"
                   />
                   <p className="text-sm text-gray-400">
                     Be as detailed as possible. The more context you provide, the better my AI can analyze your needs.
@@ -181,7 +181,7 @@ export default function Contact() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[var(--accent-orange)] hover:bg-[var(--accent-orange)]/90 text-white font-bold py-6 text-lg hover:glow-effect transition-all"
+                  className="w-full bg-[var(--accent-yellow)] hover:bg-[var(--accent-yellow)]/90 text-black font-bold py-6 text-lg hover:glow-effect transition-all"
                 >
                   {isSubmitting ? (
                     <>
@@ -213,27 +213,27 @@ export default function Contact() {
           >
             <h3 className="text-2xl font-bold text-center mb-8">What Happens Next?</h3>
             <div className="grid md:grid-cols-3 gap-6">
-              <Card className="bg-[var(--bg-card)] border-gray-800 p-6 text-center">
-                <div className="w-12 h-12 bg-[var(--accent-orange)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl font-bold text-[var(--accent-orange)]">1</span>
+              <Card className="bg-[var(--bg-card)] border-gray-900 p-6 text-center">
+                <div className="w-12 h-12 bg-[var(--accent-yellow)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl font-bold text-[var(--accent-yellow)]">1</span>
                 </div>
                 <h4 className="font-bold mb-2">Instant AI Analysis</h4>
                 <p className="text-sm text-gray-400">
                   My AI agent immediately analyzes your task and emails you initial insights
                 </p>
               </Card>
-              <Card className="bg-[var(--bg-card)] border-gray-800 p-6 text-center">
-                <div className="w-12 h-12 bg-[var(--accent-orange)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl font-bold text-[var(--accent-orange)]">2</span>
+              <Card className="bg-[var(--bg-card)] border-gray-900 p-6 text-center">
+                <div className="w-12 h-12 bg-[var(--accent-yellow)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl font-bold text-[var(--accent-yellow)]">2</span>
                 </div>
                 <h4 className="font-bold mb-2">Personal Review</h4>
                 <p className="text-sm text-gray-400">
                   I personally review your challenge and craft a custom automation strategy
                 </p>
               </Card>
-              <Card className="bg-[var(--bg-card)] border-gray-800 p-6 text-center">
-                <div className="w-12 h-12 bg-[var(--accent-orange)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl font-bold text-[var(--accent-orange)]">3</span>
+              <Card className="bg-[var(--bg-card)] border-gray-900 p-6 text-center">
+                <div className="w-12 h-12 bg-[var(--accent-yellow)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl font-bold text-[var(--accent-yellow)]">3</span>
                 </div>
                 <h4 className="font-bold mb-2">Strategic Call</h4>
                 <p className="text-sm text-gray-400">

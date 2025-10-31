@@ -5,14 +5,14 @@ import { Code2, Target, Users, Zap, Brain, Workflow, Database, Cloud, Terminal, 
 
 export default function AboutMe() {
   const skills = [
-    { name: "n8n", icon: Workflow, color: "from-purple-500 to-pink-500" },
-    { name: "OpenAI API", icon: Brain, color: "from-green-500 to-emerald-500" },
-    { name: "Python", icon: Terminal, color: "from-blue-500 to-cyan-500" },
-    { name: "Webhooks", icon: Zap, color: "from-yellow-500 to-orange-500" },
-    { name: "CRM APIs", icon: Database, color: "from-red-500 to-pink-500" },
-    { name: "Cloud Services", icon: Cloud, color: "from-indigo-500 to-purple-500" },
-    { name: "API Integration", icon: Boxes, color: "from-orange-500 to-red-500" },
-    { name: "Automation", icon: Code2, color: "from-cyan-500 to-blue-500" },
+    { name: "n8n", icon: Workflow },
+    { name: "OpenAI API", icon: Brain },
+    { name: "Python", icon: Terminal },
+    { name: "Webhooks", icon: Zap },
+    { name: "CRM APIs", icon: Database },
+    { name: "Cloud Services", icon: Cloud },
+    { name: "API Integration", icon: Boxes },
+    { name: "Automation", icon: Code2 },
   ];
 
   const values = [
@@ -39,10 +39,10 @@ export default function AboutMe() {
   ];
 
   return (
-    <div className="pt-20 min-h-screen bg-[#0F0F0F]">
+    <div className="pt-20 min-h-screen bg-black">
       {/* Hero Section */}
       <section className="py-20 lg:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent-orange)]/5 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent-yellow)]/5 to-transparent" />
         
         <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
           <motion.div
@@ -52,7 +52,7 @@ export default function AboutMe() {
             className="text-center mb-16"
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              The Expert Behind <span className="text-[var(--accent-orange)]">the Automation</span>
+              The Expert Behind <span className="text-[var(--accent-yellow)]">the Automation</span>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Transforming complex challenges into elegant automated solutions
@@ -60,7 +60,7 @@ export default function AboutMe() {
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Photo */}
+            {/* Photo merged with background */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -68,11 +68,15 @@ export default function AboutMe() {
               className="flex justify-center"
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent-orange)] to-purple-500 rounded-2xl blur-3xl opacity-20" />
                 <img
                   src="https://i.postimg.cc/7LMFPhmx/Gemini-Generated-Image-urst39urst39urst.png"
                   alt="Ahmer"
-                  className="relative w-full max-w-md rounded-2xl border-2 border-[var(--accent-orange)] shadow-2xl"
+                  className="w-full max-w-md"
+                  style={{
+                    maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
+                    clipPath: 'inset(0 0 15% 0)'
+                  }}
                 />
               </div>
             </motion.div>
@@ -88,7 +92,7 @@ export default function AboutMe() {
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
                   My fascination with efficiency began early. I've always been driven by a simple question: 
-                  <span className="text-[var(--accent-orange)] font-semibold"> "How can we do this better?"</span> 
+                  <span className="text-[var(--accent-yellow)] font-semibold"> "How can we do this better?"</span> 
                   This curiosity led me deep into the world of automation and artificial intelligence.
                 </p>
                 <p>
@@ -108,7 +112,7 @@ export default function AboutMe() {
       </section>
 
       {/* Philosophy Section */}
-      <section className="py-20 bg-gradient-to-b from-[#0F0F0F] to-[#1A1A1A]">
+      <section className="py-20 bg-[#0A0A0A]">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -118,7 +122,7 @@ export default function AboutMe() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              My Core <span className="text-[var(--accent-orange)]">Values & Approach</span>
+              My Core <span className="text-[var(--accent-yellow)]">Values & Approach</span>
             </h2>
             <p className="text-xl text-gray-400">The principles that guide every project I undertake</p>
           </motion.div>
@@ -132,8 +136,8 @@ export default function AboutMe() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="bg-[var(--bg-card)] border-gray-800 p-8 h-full hover:border-[var(--accent-orange)] transition-all duration-300 group">
-                  <value.icon className="w-12 h-12 text-[var(--accent-orange)] mb-4 group-hover:scale-110 transition-transform" />
+                <Card className="bg-black border-gray-900 p-8 h-full hover:border-[var(--accent-yellow)] transition-all duration-300 group">
+                  <value.icon className="w-12 h-12 text-[var(--accent-yellow)] mb-4 group-hover:scale-110 transition-transform" />
                   <h3 className="text-2xl font-bold mb-3">{value.title}</h3>
                   <p className="text-gray-400 leading-relaxed">{value.description}</p>
                 </Card>
@@ -144,7 +148,7 @@ export default function AboutMe() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-20 bg-[#0F0F0F]">
+      <section className="py-20 bg-black">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -154,7 +158,7 @@ export default function AboutMe() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Technologies I <span className="text-[var(--accent-orange)]">Master</span>
+              Technologies I <span className="text-[var(--accent-yellow)]">Master</span>
             </h2>
             <p className="text-xl text-gray-400">My technical arsenal for building world-class automation</p>
           </motion.div>
@@ -168,11 +172,14 @@ export default function AboutMe() {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 viewport={{ once: true }}
               >
-                <Card className="bg-[var(--bg-card)] border-gray-800 p-6 text-center hover:border-[var(--accent-orange)] transition-all duration-300 group cursor-pointer">
-                  <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br ${skill.color} p-3 group-hover:scale-110 transition-transform`}>
-                    <skill.icon className="w-full h-full text-white" />
+                <Card className="bg-[#0A0A0A] border-gray-900 p-8 text-center hover:border-[var(--accent-yellow)] transition-all duration-300 group cursor-pointer relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[var(--accent-yellow)] opacity-0 group-hover:opacity-5 transition-opacity" />
+                  <div className="relative z-10">
+                    <div className="w-16 h-16 mx-auto mb-4 p-4 rounded-2xl border border-gray-800 group-hover:border-[var(--accent-yellow)] transition-all group-hover:scale-110">
+                      <skill.icon className="w-full h-full text-[var(--accent-yellow)]" />
+                    </div>
+                    <h3 className="font-bold text-lg">{skill.name}</h3>
                   </div>
-                  <h3 className="font-bold text-lg">{skill.name}</h3>
                 </Card>
               </motion.div>
             ))}

@@ -63,7 +63,7 @@ export default function CaseStudies() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-[#0F0F0F] to-[#1A1A1A]">
+    <section className="py-20 bg-[#0A0A0A]">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,12 +72,12 @@ export default function CaseStudies() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--accent-orange)] bg-[var(--accent-orange)]/10 mb-6">
-            <CheckCircle className="w-4 h-4 text-[var(--accent-orange)]" />
-            <span className="text-sm font-medium text-[var(--accent-orange)]">PROVEN RESULTS</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--accent-yellow)] bg-[var(--accent-yellow)]/10 mb-6">
+            <CheckCircle className="w-4 h-4 text-[var(--accent-yellow)]" />
+            <span className="text-sm font-medium text-[var(--accent-yellow)]">PROVEN RESULTS</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Deep Dives: The <span className="text-[var(--accent-orange)]">Impact of Automation</span>
+            Deep Dives: The <span className="text-[var(--accent-yellow)]">Impact of Automation</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Real projects, real results, real transformation
@@ -95,7 +95,7 @@ export default function CaseStudies() {
               viewport={{ once: true }}
             >
               <Card 
-                className="bg-[var(--bg-card)] border-gray-800 overflow-hidden h-full hover:border-[var(--accent-orange)] transition-all duration-300 cursor-pointer group"
+                className="bg-black border-gray-900 overflow-hidden h-full hover:border-[var(--accent-yellow)] transition-all duration-300 cursor-pointer group"
                 onClick={() => setSelectedStudy(study)}
               >
                 <div className="relative h-48 overflow-hidden">
@@ -104,11 +104,11 @@ export default function CaseStudies() {
                     alt={study.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
                 </div>
                 
                 <div className="p-6 space-y-4">
-                  <h3 className="text-xl font-bold line-clamp-2 group-hover:text-[var(--accent-orange)] transition-colors">
+                  <h3 className="text-xl font-bold line-clamp-2 group-hover:text-[var(--accent-yellow)] transition-colors">
                     {study.title}
                   </h3>
                   
@@ -125,7 +125,7 @@ export default function CaseStudies() {
 
                   <Button 
                     variant="ghost" 
-                    className="w-full group-hover:bg-[var(--accent-orange)]/10 group-hover:text-[var(--accent-orange)]"
+                    className="w-full group-hover:bg-[var(--accent-yellow)]/10 group-hover:text-[var(--accent-yellow)]"
                   >
                     Read Full Story
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -143,14 +143,14 @@ export default function CaseStudies() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
               onClick={() => setSelectedStudy(null)}
             >
               <motion.div
                 initial={{ scale: 0.9, y: 20 }}
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.9, y: 20 }}
-                className="bg-[var(--bg-card)] border border-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-[var(--bg-card)] border border-gray-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Header Image */}
@@ -163,7 +163,7 @@ export default function CaseStudies() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white"
+                    className="absolute top-4 right-4 bg-black/70 hover:bg-black/90 text-white"
                     onClick={() => setSelectedStudy(null)}
                   >
                     <X className="w-5 h-5" />
@@ -190,23 +190,23 @@ export default function CaseStudies() {
 
                   {/* The Problem */}
                   <div>
-                    <h3 className="text-2xl font-bold mb-3 text-[var(--accent-orange)]">The Problem</h3>
+                    <h3 className="text-2xl font-bold mb-3 text-[var(--accent-yellow)]">The Problem</h3>
                     <p className="text-gray-300 leading-relaxed">{selectedStudy.challenge}</p>
                   </div>
 
                   {/* My Solution */}
                   <div>
-                    <h3 className="text-2xl font-bold mb-3 text-[var(--accent-orange)]">My Solution</h3>
+                    <h3 className="text-2xl font-bold mb-3 text-[var(--accent-yellow)]">My Solution</h3>
                     <p className="text-gray-300 leading-relaxed">{selectedStudy.solution}</p>
                   </div>
 
                   {/* Results */}
                   <div>
-                    <h3 className="text-2xl font-bold mb-4 text-[var(--accent-orange)]">The Results</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-[var(--accent-yellow)]">The Results</h3>
                     <div className="grid md:grid-cols-3 gap-4">
                       {selectedStudy.results.map((result, idx) => (
-                        <Card key={idx} className="bg-[#0F0F0F] border-gray-800 p-6 text-center">
-                          <result.icon className="w-8 h-8 text-[var(--accent-orange)] mx-auto mb-3" />
+                        <Card key={idx} className="bg-black border-gray-900 p-6 text-center">
+                          <result.icon className="w-8 h-8 text-[var(--accent-yellow)] mx-auto mb-3" />
                           <p className="text-3xl font-bold mb-1">{result.value}</p>
                           <p className="text-sm text-gray-400">{result.metric}</p>
                         </Card>
@@ -216,10 +216,10 @@ export default function CaseStudies() {
 
                   {/* Tools Used */}
                   <div>
-                    <h3 className="text-2xl font-bold mb-4 text-[var(--accent-orange)]">Tools Used</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-[var(--accent-yellow)]">Tools Used</h3>
                     <div className="flex flex-wrap gap-2">
                       {selectedStudy.tools.map((tool, idx) => (
-                        <Badge key={idx} className="bg-[var(--accent-orange)]/10 text-[var(--accent-orange)] border-[var(--accent-orange)]/20">
+                        <Badge key={idx} className="bg-[var(--accent-yellow)]/10 text-[var(--accent-yellow)] border-[var(--accent-yellow)]/20">
                           {tool}
                         </Badge>
                       ))}
