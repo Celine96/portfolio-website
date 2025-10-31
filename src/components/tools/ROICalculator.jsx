@@ -37,7 +37,9 @@ export default function ROICalculator() {
 
   return (
     <section className="py-20 bg-black">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
+      <div className="absolute inset-0 gradient-mesh" />
+      
+      <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,11 +47,11 @@ export default function ROICalculator() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--accent-yellow)] bg-[var(--accent-yellow)]/10 mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--accent-yellow)] bg-[var(--accent-yellow)]/10 mb-6 animate-pulse-glow">
             <Calculator className="w-4 h-4 text-[var(--accent-yellow)]" />
             <span className="text-sm font-medium text-[var(--accent-yellow)]">ROI CALCULATOR</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-glow">
             Calculate Your <span className="text-[var(--accent-yellow)]">Hidden Costs</span>
           </h2>
           <p className="text-xl text-gray-400">
@@ -68,7 +70,7 @@ export default function ROICalculator() {
               {/* Input 1 */}
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <Label className="text-lg font-semibold">Daily Repetitions of a Task</Label>
+                  <Label className="text-lg font-semibold text-white">Daily Repetitions of a Task</Label>
                   <span className="text-2xl font-bold text-[var(--accent-yellow)]">{dailyReps}</span>
                 </div>
                 <Slider
@@ -85,7 +87,7 @@ export default function ROICalculator() {
               {/* Input 2 */}
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <Label className="text-lg font-semibold">Minutes per Manual Task</Label>
+                  <Label className="text-lg font-semibold text-white">Minutes per Manual Task</Label>
                   <span className="text-2xl font-bold text-[var(--accent-yellow)]">{minutesPerTask}</span>
                 </div>
                 <Slider
@@ -102,7 +104,7 @@ export default function ROICalculator() {
               {/* Input 3 */}
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <Label className="text-lg font-semibold">Average Hourly Employee Cost ($)</Label>
+                  <Label className="text-lg font-semibold text-white">Average Hourly Employee Cost ($)</Label>
                   <span className="text-2xl font-bold text-[var(--accent-yellow)]">${hourlyCost}</span>
                 </div>
                 <Slider
@@ -119,7 +121,7 @@ export default function ROICalculator() {
               {/* Calculate Button */}
               <Button
                 onClick={handleCalculate}
-                className="w-full bg-[var(--accent-yellow)] hover:bg-[var(--accent-yellow)]/90 text-black font-bold py-6 text-lg hover:glow-effect transition-all"
+                className="w-full bg-[var(--accent-yellow)] hover:bg-[var(--accent-yellow)]/90 text-black font-bold py-6 text-lg glow-effect transition-all"
               >
                 <TrendingUp className="w-5 h-5 mr-2" />
                 Show My Annual Savings
@@ -135,7 +137,7 @@ export default function ROICalculator() {
                 >
                   <div className="text-center">
                     <p className="text-gray-400 mb-2">Your Annual Savings Potential</p>
-                    <p className="text-6xl md:text-7xl font-black text-[var(--accent-yellow)] mb-4">
+                    <p className="text-6xl md:text-7xl font-black text-[var(--accent-yellow)] mb-4 text-glow">
                       ${parseInt(savings.annualCost).toLocaleString()}
                     </p>
                     <p className="text-xl text-gray-300">
@@ -148,24 +150,24 @@ export default function ROICalculator() {
                   <div className="grid md:grid-cols-3 gap-4">
                     <Card className="bg-black border-gray-900 p-6 text-center">
                       <DollarSign className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                      <p className="text-2xl font-bold mb-1">${savings.dailyCost}</p>
+                      <p className="text-2xl font-bold mb-1 text-white">${savings.dailyCost}</p>
                       <p className="text-sm text-gray-400">Daily Cost</p>
                     </Card>
                     <Card className="bg-black border-gray-900 p-6 text-center">
                       <TrendingUp className="w-8 h-8 text-blue-500 mx-auto mb-2" />
-                      <p className="text-2xl font-bold mb-1">{savings.dailyHours}h</p>
+                      <p className="text-2xl font-bold mb-1 text-white">{savings.dailyHours}h</p>
                       <p className="text-sm text-gray-400">Daily Hours</p>
                     </Card>
                     <Card className="bg-black border-gray-900 p-6 text-center">
                       <Calculator className="w-8 h-8 text-purple-500 mx-auto mb-2" />
-                      <p className="text-2xl font-bold mb-1">{dailyReps}x</p>
+                      <p className="text-2xl font-bold mb-1 text-white">{dailyReps}x</p>
                       <p className="text-sm text-gray-400">Daily Tasks</p>
                     </Card>
                   </div>
 
                   {/* Email Lead Gen */}
                   <Card className="bg-gradient-to-r from-[var(--accent-yellow)]/10 to-transparent border-[var(--accent-yellow)]/20 p-6">
-                    <h4 className="text-xl font-bold mb-4 text-center">Get Your Custom PDF Report</h4>
+                    <h4 className="text-xl font-bold mb-4 text-center text-white">Get Your Custom PDF Report</h4>
                     <div className="flex gap-3">
                       <Input
                         type="email"
