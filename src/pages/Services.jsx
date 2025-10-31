@@ -104,10 +104,10 @@ export default function Services() {
   ];
 
   return (
-    <div className="pt-28 min-h-screen bg-black">
+    <div className="pt-20 min-h-screen bg-black">
       {/* Hero Section */}
       <section className="py-20 lg:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 gradient-bg opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent-yellow)]/5 to-transparent" />
         
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <motion.div
@@ -121,7 +121,7 @@ export default function Services() {
               <span className="text-sm font-medium text-[var(--accent-yellow)]">AUTOMATION SERVICES</span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Automation <span className="text-[var(--accent-yellow)] text-glow">Blueprint</span>
+              Your Path to <span className="text-[var(--accent-yellow)]">Efficiency</span>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Strategic AI automation solutions designed to transform your business operations
@@ -186,7 +186,7 @@ export default function Services() {
                     <Link to={createPageUrl("Contact")}>
                       <Button 
                         variant="ghost" 
-                        className="w-full border border-gray-900 hover:border-[var(--accent-yellow)] hover:bg-[var(--accent-yellow)]/10 group-hover:border-[var(--accent-yellow)] transition-all text-white hover:text-[var(--accent-yellow)]"
+                        className="w-full border border-gray-900 hover:border-[var(--accent-yellow)] hover:bg-[var(--accent-yellow)]/10 group-hover:border-[var(--accent-yellow)] transition-all"
                       >
                         Get Started
                         <ArrowRight className="w-4 h-4 ml-2" />
@@ -207,7 +207,7 @@ export default function Services() {
             className="mt-20 text-center"
           >
             <Card className="bg-gradient-to-r from-[var(--accent-yellow)]/10 to-transparent border-[var(--accent-yellow)]/20 p-12">
-              <h3 className="text-3xl font-bold mb-4 text-[var(--accent-yellow)] text-glow">Need a Custom Solution?</h3>
+              <h3 className="text-3xl font-bold mb-4">Need a Custom Solution?</h3>
               <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                 Every business is unique. Let's build an automation strategy tailored specifically to your needs.
               </p>

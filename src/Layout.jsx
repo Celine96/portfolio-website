@@ -50,49 +50,31 @@ export default function Layout({ children, currentPageName }) {
         }
         
         .text-glow {
-          text-shadow: 0 0 30px rgba(212, 255, 0, 0.6);
+          text-shadow: 0 0 30px rgba(212, 255, 0, 0.5);
         }
         
         .nav-blur {
-          backdrop-filter: blur(20px);
-          background: rgba(0, 0, 0, 0.95);
+          backdrop-filter: blur(10px);
+          background: rgba(0, 0, 0, 0.9);
         }
         
         .smooth-scroll {
           scroll-behavior: smooth;
         }
-        
-        .gradient-bg {
-          background: radial-gradient(ellipse at top, rgba(212, 255, 0, 0.05) 0%, transparent 60%),
-                      radial-gradient(ellipse at bottom, rgba(212, 255, 0, 0.03) 0%, transparent 60%);
-        }
-        
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-        
-        .float-animation {
-          animation: float 3s ease-in-out infinite;
-        }
       `}</style>
 
-      {/* Floating Navigation Bar - Center */}
+      {/* Navigation Bar */}
       <nav
-        className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${
-          isScrolled ? "nav-blur" : "bg-black/80 backdrop-blur-xl"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "nav-blur border-b border-gray-900" : ""
         }`}
-        style={{
-          borderRadius: '50px',
-          border: '1px solid rgba(212, 255, 0, 0.2)',
-        }}
       >
-        <div className="px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link
               to={createPageUrl("Home")}
-              className="text-xl font-bold tracking-tight hover:text-[var(--accent-yellow)] transition-colors mr-6"
+              className="text-2xl font-bold tracking-tight hover:text-[var(--accent-yellow)] transition-colors"
             >
               AHMER<span className="text-[var(--accent-yellow)]">.</span>
             </Link>
@@ -103,10 +85,10 @@ export default function Layout({ children, currentPageName }) {
                 <Link
                   key={link.name}
                   to={createPageUrl(link.path)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActive(link.path)
-                      ? "text-[var(--accent-yellow)] bg-[var(--accent-yellow)]/10"
-                      : "text-white hover:text-[var(--accent-yellow)] hover:bg-[var(--accent-yellow)]/5"
+                      ? "text-[var(--accent-yellow)]"
+                      : "text-white hover:text-[var(--accent-yellow)]"
                   }`}
                 >
                   {link.name}
@@ -114,7 +96,7 @@ export default function Layout({ children, currentPageName }) {
               ))}
               <Link
                 to={createPageUrl("Contact")}
-                className="ml-4 px-6 py-2.5 bg-[var(--accent-yellow)] text-black rounded-full font-semibold hover:glow-effect transition-all duration-200 transform hover:scale-105"
+                className="ml-4 px-6 py-2.5 bg-[var(--accent-yellow)] text-black rounded-lg font-semibold hover:glow-effect transition-all duration-200 transform hover:scale-105"
               >
                 Contact
               </Link>
@@ -162,7 +144,7 @@ export default function Layout({ children, currentPageName }) {
       <main className="smooth-scroll">{children}</main>
 
       {/* Footer */}
-      <footer className="border-t border-gray-900 mt-20 gradient-bg">
+      <footer className="border-t border-gray-900 mt-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -188,7 +170,7 @@ export default function Layout({ children, currentPageName }) {
               </div>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Connect With</h4>
+              <h4 className="font-semibold mb-4">Let's Connect</h4>
               <Link
                 to={createPageUrl("Contact")}
                 className="inline-block px-6 py-2 bg-[var(--accent-yellow)] text-black rounded-lg font-semibold hover:glow-effect transition-all"

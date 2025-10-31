@@ -57,10 +57,10 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-28 min-h-screen bg-black">
+    <div className="pt-20 min-h-screen bg-black">
       {/* Hero Section */}
       <section className="py-20 lg:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 gradient-bg opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent-yellow)]/5 to-transparent" />
         
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
           <motion.div
@@ -74,7 +74,7 @@ export default function Contact() {
               <span className="text-sm font-medium text-[var(--accent-yellow)]">AI-POWERED CONTACT</span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              Ready to <span className="text-[var(--accent-yellow)] text-glow">Transform</span> Your Business?
+              Ready to <span className="text-[var(--accent-yellow)]">Transform</span> Your Business?
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               This isn't just a contact form. Describe your most time-consuming, repetitive task. 
@@ -191,7 +191,7 @@ export default function Contact() {
                   ) : (
                     <>
                       <Send className="w-5 h-5 mr-2" />
-                      Challenge Me!
+                      Send My Automation Challenge
                     </>
                   )}
                 </Button>
@@ -211,7 +211,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="mt-16"
           >
-            <h3 className="text-2xl font-bold text-center mb-8 text-[var(--accent-yellow)] text-glow">What Happens Next?</h3>
+            <h3 className="text-2xl font-bold text-center mb-8">What Happens Next?</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <Card className="bg-[var(--bg-card)] border-gray-900 p-6 text-center">
                 <div className="w-12 h-12 bg-[var(--accent-yellow)]/10 rounded-full flex items-center justify-center mx-auto mb-4">

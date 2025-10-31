@@ -45,9 +45,7 @@ export default function AIDemoSection() {
 
   return (
     <section className="relative py-20 lg:py-32 bg-black border-t border-gray-900">
-      <div className="absolute inset-0 gradient-bg opacity-50" />
-      
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -62,7 +60,7 @@ export default function AIDemoSection() {
           </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Experience My AI <span className="text-[var(--accent-yellow)] text-glow">in Action</span>
+            Experience My AI <span className="text-[var(--accent-yellow)]">in Action</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             See an AI agent instantly analyze sentiment, topic, and priority. 
@@ -188,8 +186,8 @@ export default function AIDemoSection() {
           >
             <Card className="bg-gradient-to-r from-[var(--accent-yellow)]/10 to-transparent border-[var(--accent-yellow)]/20 p-8">
               <AlertTriangle className="w-12 h-12 text-[var(--accent-yellow)] mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-4 text-[var(--accent-yellow)] text-glow">Imagine the Possibilities</h3>
-              <p className="text-lg text-gray-100 max-w-3xl mx-auto leading-relaxed">
+              <h3 className="text-2xl font-bold mb-4">Imagine the Possibilities</h3>
+              <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 This interactive demo showcases fundamental AI capabilities. Imagine building custom agents 
                 tailored to your specific business needs – from <span className="text-[var(--accent-yellow)] font-semibold">lead qualification</span> to 
                 <span className="text-[var(--accent-yellow)] font-semibold"> automated content generation</span>. That's what I deliver.

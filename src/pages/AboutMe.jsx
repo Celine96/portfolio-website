@@ -39,10 +39,10 @@ export default function AboutMe() {
   ];
 
   return (
-    <div className="pt-28 min-h-screen bg-black">
-      {/* Hero Section with layered effect */}
-      <section className="py-20 lg:py-32 relative overflow-hidden" style={{ background: '#000000' }}>
-        <div className="absolute inset-0 gradient-bg opacity-30" />
+    <div className="pt-20 min-h-screen bg-black">
+      {/* Hero Section */}
+      <section className="py-20 lg:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--accent-yellow)]/5 to-transparent" />
         
         <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
           <motion.div
@@ -52,7 +52,7 @@ export default function AboutMe() {
             className="text-center mb-16"
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              The Expert Behind <span className="text-[var(--accent-yellow)] text-glow">the Automation</span>
+              The Expert Behind <span className="text-[var(--accent-yellow)]">the Automation</span>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Transforming complex challenges into elegant automated solutions
@@ -60,31 +60,16 @@ export default function AboutMe() {
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Photo with layered effect */}
+            {/* Photo merged with background */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex justify-center relative"
+              className="flex justify-center"
             >
-              {/* Large name background behind photo */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
-                <h2 
-                  className="text-[12rem] md:text-[16rem] font-black"
-                  style={{
-                    color: 'transparent',
-                    WebkitTextStroke: '2px rgba(212, 255, 0, 0.1)',
-                    letterSpacing: '-0.05em',
-                    opacity: 0.3
-                  }}
-                >
-                  AHMER
-                </h2>
-              </div>
-              
-              <div className="relative z-10">
+              <div className="relative">
                 <img
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6904e61633b19b2507b45d09/ef36fbf28_WhatsAppImage2025-10-31at183109_db3f5a8f.jpg"
+                  src="https://i.postimg.cc/7LMFPhmx/Gemini-Generated-Image-urst39urst39urst.png"
                   alt="Ahmer"
                   className="w-full max-w-md"
                   style={{
@@ -103,7 +88,7 @@ export default function AboutMe() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="space-y-6"
             >
-              <h2 className="text-3xl font-bold text-[var(--accent-yellow)] text-glow">My Journey into Automation</h2>
+              <h2 className="text-3xl font-bold">My Journey into Automation</h2>
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
                   My fascination with efficiency began early. I've always been driven by a simple question: 
@@ -137,7 +122,7 @@ export default function AboutMe() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              My Core <span className="text-[var(--accent-yellow)] text-glow">Values & Approach</span>
+              My Core <span className="text-[var(--accent-yellow)]">Values & Approach</span>
             </h2>
             <p className="text-xl text-gray-400">The principles that guide every project I undertake</p>
           </motion.div>
@@ -153,7 +138,7 @@ export default function AboutMe() {
               >
                 <Card className="bg-black border-gray-900 p-8 h-full hover:border-[var(--accent-yellow)] transition-all duration-300 group">
                   <value.icon className="w-12 h-12 text-[var(--accent-yellow)] mb-4 group-hover:scale-110 transition-transform" />
-                  <h3 className="text-2xl font-bold mb-3 text-[var(--accent-yellow)]">{value.title}</h3>
+                  <h3 className="text-2xl font-bold mb-3">{value.title}</h3>
                   <p className="text-gray-400 leading-relaxed">{value.description}</p>
                 </Card>
               </motion.div>
@@ -173,7 +158,7 @@ export default function AboutMe() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Technologies I <span className="text-[var(--accent-yellow)] text-glow">Master</span>
+              Technologies I <span className="text-[var(--accent-yellow)]">Master</span>
             </h2>
             <p className="text-xl text-gray-400">My technical arsenal for building world-class automation</p>
           </motion.div>
@@ -193,7 +178,7 @@ export default function AboutMe() {
                     <div className="w-16 h-16 mx-auto mb-4 p-4 rounded-2xl border border-gray-800 group-hover:border-[var(--accent-yellow)] transition-all group-hover:scale-110">
                       <skill.icon className="w-full h-full text-[var(--accent-yellow)]" />
                     </div>
-                    <h3 className="font-bold text-lg text-[var(--accent-yellow)]">{skill.name}</h3>
+                    <h3 className="font-bold text-lg">{skill.name}</h3>
                   </div>
                 </Card>
               </motion.div>
