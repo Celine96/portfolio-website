@@ -45,7 +45,9 @@ export default function AIDemoSection() {
 
   return (
     <section className="relative py-20 lg:py-32 bg-black border-t border-gray-900">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <div className="absolute inset-0 gradient-mesh" />
+      
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,12 +56,12 @@ export default function AIDemoSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--accent-yellow)] bg-[var(--accent-yellow)]/10 mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--accent-yellow)] bg-[var(--accent-yellow)]/10 mb-6 animate-pulse-glow">
             <Sparkles className="w-4 h-4 text-[var(--accent-yellow)]" />
             <span className="text-sm font-medium text-[var(--accent-yellow)]">INTERACTIVE DEMO</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-glow">
             Experience My AI <span className="text-[var(--accent-yellow)]">in Action</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
@@ -79,7 +81,7 @@ export default function AIDemoSection() {
           >
             <Button
               onClick={() => setShowDemo(true)}
-              className="bg-[var(--accent-yellow)] hover:bg-[var(--accent-yellow)]/90 text-black font-bold py-8 px-12 text-xl rounded-xl hover:glow-effect transition-all transform hover:scale-105 group"
+              className="bg-[var(--accent-yellow)] hover:bg-[var(--accent-yellow)]/90 text-black font-bold py-8 px-12 text-xl rounded-xl glow-effect transition-all transform hover:scale-105 group"
             >
               <Play className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform" />
               Try the AI Demo
@@ -100,8 +102,8 @@ export default function AIDemoSection() {
                 <div className="grid lg:grid-cols-2 gap-8">
                   {/* Input Section */}
                   <div className="space-y-4">
-                    <label className="text-lg font-semibold flex items-center gap-2">
-                      <MessageSquare className="w-5 h-5 text-[var(--accent-yellow)]" />
+                    <label className="text-lg font-semibold flex items-center gap-2 text-[var(--accent-yellow)]">
+                      <MessageSquare className="w-5 h-5" />
                       Your Message
                     </label>
                     <Textarea
@@ -113,7 +115,7 @@ export default function AIDemoSection() {
                     <Button
                       onClick={handleAnalyze}
                       disabled={!inputText.trim() || isAnalyzing}
-                      className="w-full bg-[var(--accent-yellow)] hover:bg-[var(--accent-yellow)]/90 text-black font-semibold py-6 text-lg hover:glow-effect transition-all"
+                      className="w-full bg-[var(--accent-yellow)] hover:bg-[var(--accent-yellow)]/90 text-black font-semibold py-6 text-lg glow-effect transition-all"
                     >
                       {isAnalyzing ? (
                         <>
@@ -131,8 +133,8 @@ export default function AIDemoSection() {
 
                   {/* Output Section */}
                   <div className="space-y-4">
-                    <label className="text-lg font-semibold flex items-center gap-2">
-                      <TrendingUp className="w-5 h-5 text-[var(--accent-yellow)]" />
+                    <label className="text-lg font-semibold flex items-center gap-2 text-[var(--accent-yellow)]">
+                      <TrendingUp className="w-5 h-5" />
                       AI Analysis Results
                     </label>
                     
@@ -186,7 +188,7 @@ export default function AIDemoSection() {
           >
             <Card className="bg-gradient-to-r from-[var(--accent-yellow)]/10 to-transparent border-[var(--accent-yellow)]/20 p-8">
               <AlertTriangle className="w-12 h-12 text-[var(--accent-yellow)] mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-4">Imagine the Possibilities</h3>
+              <h3 className="text-2xl font-bold mb-4 text-[var(--accent-yellow)] text-glow">Imagine the Possibilities</h3>
               <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 This interactive demo showcases fundamental AI capabilities. Imagine building custom agents 
                 tailored to your specific business needs – from <span className="text-[var(--accent-yellow)] font-semibold">lead qualification</span> to 
