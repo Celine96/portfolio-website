@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Linkedin, Mail } from "lucide-react";
 
 export default function Layout({ children, currentPageName }) {
   const location = useLocation();
@@ -18,10 +18,10 @@ export default function Layout({ children, currentPageName }) {
 
   const navLinks = [
     { name: "Home", path: "Home" },
-    { name: "About Me", path: "AboutMe" },
-    { name: "Portfolio", path: "Portfolio" },
+    { name: "About", path: "AboutMe" },
     { name: "Services", path: "Services" },
-    { name: "ROI Calculator", path: "Tools" },
+    { name: "Agents", path: "Portfolio" },
+    { name: "ROI", path: "Tools" },
   ];
 
   const isActive = (pageName) => {
@@ -29,44 +29,55 @@ export default function Layout({ children, currentPageName }) {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#111111] text-[#F5F5F5]">
       <style>{`
-        :root {
-          --accent-yellow: #D4FF00;
-          --bg-dark: #000000;
-          --bg-card: #0A0A0A;
-          --text-primary: #FFFFFF;
-          --text-secondary: #A0A0A0;
-        }
-        
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
         * {
-          font-family: 'Space Grotesk', sans-serif;
-        }
-        
-        .glow-effect {
-          box-shadow: 0 0 20px rgba(212, 255, 0, 0.4);
-        }
-        
-        .text-glow {
-          text-shadow: 0 0 30px rgba(212, 255, 0, 0.5);
-        }
-        
-        .nav-blur {
-          backdrop-filter: blur(10px);
-          background: rgba(0, 0, 0, 0.9);
+          font-family: 'Inter', sans-serif;
         }
         
         .smooth-scroll {
           scroll-behavior: smooth;
+        }
+        
+        .card-hover {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .button-hover {
+          transition: filter 0.2s ease;
+        }
+        
+        .button-hover:hover {
+          filter: brightness(1.1);
+        }
+        
+        .fade-in {
+          animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       `}</style>
 
       {/* Navigation Bar */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "nav-blur border-b border-gray-900" : ""
+          isScrolled ? "bg-[#111111]/95 backdrop-blur-sm border-b border-[#333333]" : ""
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -74,21 +85,21 @@ export default function Layout({ children, currentPageName }) {
             {/* Logo */}
             <Link
               to={createPageUrl("Home")}
-              className="text-2xl font-bold tracking-tight hover:text-[var(--accent-yellow)] transition-colors"
+              className="text-xl font-bold tracking-tight text-[#F5F5F5] hover:text-[#CCFF00] transition-colors"
             >
-              AHMER<span className="text-[var(--accent-yellow)]">.</span>
+              AHMER.
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-1">
+            <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={createPageUrl(link.path)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  className={`text-sm font-medium transition-colors ${
                     isActive(link.path)
-                      ? "text-[var(--accent-yellow)]"
-                      : "text-white hover:text-[var(--accent-yellow)]"
+                      ? "text-[#F5F5F5]"
+                      : "text-[#A0A0A0] hover:text-[#F5F5F5]"
                   }`}
                 >
                   {link.name}
@@ -96,7 +107,7 @@ export default function Layout({ children, currentPageName }) {
               ))}
               <Link
                 to={createPageUrl("Contact")}
-                className="ml-4 px-6 py-2.5 bg-[var(--accent-yellow)] text-black rounded-lg font-semibold hover:glow-effect transition-all duration-200 transform hover:scale-105"
+                className="px-6 py-2.5 bg-[#CCFF00] text-black rounded font-semibold button-hover"
               >
                 Contact
               </Link>
@@ -105,7 +116,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-900 transition-colors"
+              className="md:hidden p-2 rounded hover:bg-[#1A1A1A] transition-colors"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -113,16 +124,16 @@ export default function Layout({ children, currentPageName }) {
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className="md:hidden py-4 space-y-2 border-t border-gray-900">
+            <div className="md:hidden py-4 space-y-2 border-t border-[#333333]">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={createPageUrl(link.path)}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`block px-4 py-2 rounded text-sm font-medium transition-colors ${
                     isActive(link.path)
-                      ? "bg-gray-900 text-[var(--accent-yellow)]"
-                      : "hover:bg-gray-900"
+                      ? "bg-[#1A1A1A] text-[#F5F5F5]"
+                      : "text-[#A0A0A0] hover:bg-[#1A1A1A]"
                   }`}
                 >
                   {link.name}
@@ -131,7 +142,7 @@ export default function Layout({ children, currentPageName }) {
               <Link
                 to={createPageUrl("Contact")}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-2.5 bg-[var(--accent-yellow)] text-black rounded-lg font-semibold text-center"
+                className="block px-4 py-2.5 bg-[#CCFF00] text-black rounded font-semibold text-center mx-4"
               >
                 Contact
               </Link>
@@ -144,25 +155,23 @@ export default function Layout({ children, currentPageName }) {
       <main className="smooth-scroll">{children}</main>
 
       {/* Footer */}
-      <footer className="border-t border-gray-900 mt-20">
+      <footer className="border-t border-[#333333] mt-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">
-                AHMER<span className="text-[var(--accent-yellow)]">.</span>
-              </h3>
-              <p className="text-gray-400 text-sm">
-                AI Automation Expert crafting intelligent workflows that redefine productivity.
+              <h3 className="text-xl font-bold mb-4">AHMER.</h3>
+              <p className="text-[#A0A0A0] text-sm leading-relaxed">
+                AI Automation Expert for high-growth businesses. Building intelligent systems that scale.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
+              <h4 className="font-semibold mb-4 text-[#F5F5F5]">Quick Links</h4>
               <div className="space-y-2">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
                     to={createPageUrl(link.path)}
-                    className="block text-sm text-gray-400 hover:text-[var(--accent-yellow)] transition-colors"
+                    className="block text-sm text-[#A0A0A0] hover:text-[#CCFF00] transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -170,17 +179,33 @@ export default function Layout({ children, currentPageName }) {
               </div>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Let's Connect</h4>
+              <h4 className="font-semibold mb-4 text-[#F5F5F5]">Let's Connect</h4>
+              <div className="flex items-center gap-4 mb-4">
+                <a
+                  href="https://www.linkedin.com/in/ahmer0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#A0A0A0] hover:text-[#CCFF00] transition-colors"
+                >
+                  <Linkedin size={24} />
+                </a>
+                <a
+                  href="mailto:ehmar07@gmail.com"
+                  className="text-[#A0A0A0] hover:text-[#CCFF00] transition-colors"
+                >
+                  <Mail size={24} />
+                </a>
+              </div>
               <Link
                 to={createPageUrl("Contact")}
-                className="inline-block px-6 py-2 bg-[var(--accent-yellow)] text-black rounded-lg font-semibold hover:glow-effect transition-all"
+                className="inline-block px-6 py-2 bg-[#CCFF00] text-black rounded font-semibold button-hover"
               >
                 Get in Touch
               </Link>
             </div>
           </div>
-          <div className="mt-12 pt-8 border-t border-gray-900 text-center text-sm text-gray-400">
-            © {new Date().getFullYear()} Ahmer. All rights reserved. Powered by AI & Innovation.
+          <div className="mt-12 pt-8 border-t border-[#333333] text-center text-sm text-[#A0A0A0]">
+            © {new Date().getFullYear()} Ahmer. All rights reserved.
           </div>
         </div>
       </footer>
