@@ -5,20 +5,24 @@ import { motion } from "framer-motion";
 export default function Tools() {
   useEffect(() => {
     return () => {
-      // Reset calculator values on unmount
       window.dispatchEvent(new Event('resetROICalculator'));
     };
   }, []);
 
   return (
     <div className="pt-20 min-h-screen bg-[#111111] relative">
-      {/* Subtle Background Grid */}
+      {/* Subtle Background Grid - Data Blueprint Style */}
       <div 
-        className="absolute inset-0 opacity-5"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `linear-gradient(rgba(204, 255, 0, 0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(204, 255, 0, 0.1) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
+          backgroundImage: `
+            linear-gradient(rgba(204, 255, 0, 0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(204, 255, 0, 0.3) 1px, transparent 1px),
+            linear-gradient(rgba(204, 255, 0, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(204, 255, 0, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '100px 100px, 100px 100px, 20px 20px, 20px 20px',
+          backgroundPosition: '-1px -1px, -1px -1px, -1px -1px, -1px -1px'
         }}
       />
 

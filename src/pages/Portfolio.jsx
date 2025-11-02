@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -16,7 +17,7 @@ export default function Portfolio() {
       impact: "Reduced lead response time from hours to seconds, boosting sales team efficiency by 25% and increasing MQL-to-SQL conversion by 15%.",
       metrics: [
         { icon: TrendingUp, label: "Sales Team Efficiency", value: "+25%" },
-        { icon: Clock, label: "Response Time", value: "Instant" },
+        { icon: Clock, label: "Response Time", value: "< 5 min" },
         { icon: Users, label: "MQL-to-SQL Conversion", value: "+15%" }
       ]
     },
@@ -25,9 +26,9 @@ export default function Portfolio() {
       name: "SupportBot Prime",
       problem: "Customer support team was overwhelmed with repetitive queries, leading to slow response times and high operational costs.",
       solution: "Deployed an AI-powered triage system that automatically categorizes tickets by urgency and topic, provides instant responses to common questions, and escalates complex issues to human agents.",
-      impact: "Cut average response time by 80%, resolved 60% of tickets automatically, and reduced support costs by $4,000/month while improving customer satisfaction scores.",
+      impact: "Cut average response time by 70%, resolved 60% of tickets automatically, and reduced support costs by $4,000/month while improving customer satisfaction scores.",
       metrics: [
-        { icon: Clock, label: "Response Time", value: "-80%" },
+        { icon: Clock, label: "Response Time", value: "-70%" },
         { icon: TrendingUp, label: "Tickets Automated", value: "60%" },
         { icon: DollarSign, label: "Monthly Savings", value: "$4K" }
       ]
@@ -37,11 +38,11 @@ export default function Portfolio() {
       name: "Content Architect",
       problem: "Marketing team spent hours manually adapting content for different platforms, limiting output and campaign velocity.",
       solution: "Created an AI workflow that takes long-form content and automatically generates platform-optimized versions (social posts, email sequences, summaries) while maintaining brand voice and key messaging.",
-      impact: "Increased content output by 400%, reduced production time from 3 hours to 15 minutes per piece, and improved cross-platform engagement by 85%.",
+      impact: "Increased content output by 150%, reduced production time from 3 hours to 15 minutes per piece, and improved cross-platform engagement by 35%.",
       metrics: [
-        { icon: TrendingUp, label: "Content Output", value: "+400%" },
+        { icon: TrendingUp, label: "Content Output", value: "+150%" },
         { icon: Clock, label: "Time Saved", value: "2.75h/piece" },
-        { icon: Users, label: "Engagement", value: "+85%" }
+        { icon: Users, label: "Engagement", value: "+35%" }
       ]
     },
     {
@@ -67,23 +68,12 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12 sm:mb-20 relative"
+            className="text-center mb-12 sm:mb-20"
           >
-            {/* Spline 3D Background - Behind headline only */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] opacity-30 pointer-events-none z-0">
-              <iframe
-                src="https://my.spline.design/landingpageanimateforportfoliowebsite-P7ovLROp6m13pvDPuU2IQvP2/"
-                frameBorder="0"
-                width="100%"
-                height="100%"
-                className="w-full h-full"
-              />
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-[#F5F5F5] relative z-10">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-[#F5F5F5]">
               Meet My <span className="text-[#CCFF00]">AI Agents</span>
             </h1>
-            <p className="text-base sm:text-lg text-[#A0A0A0] max-w-2xl mx-auto relative z-10">
+            <p className="text-base sm:text-lg text-[#A0A0A0] max-w-2xl mx-auto">
               Specialized automation systems designed to handle complex business processes
             </p>
           </motion.div>

@@ -61,14 +61,15 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="relative max-w-4xl mx-auto px-4"
           >
-            {/* Large Background Text "AHMER" - Behind the image */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden" style={{ zIndex: 1 }}>
+            {/* Large Background Text "AHMER" - Behind the image, properly scaled */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none overflow-visible w-full" style={{ zIndex: 1 }}>
               <h2 
-                className="text-[8rem] sm:text-[12rem] md:text-[16rem] lg:text-[24rem] font-black text-transparent select-none"
+                className="text-[10rem] sm:text-[14rem] md:text-[18rem] lg:text-[22rem] font-black text-transparent select-none whitespace-nowrap"
                 style={{
-                  WebkitTextStroke: '1px rgba(204, 255, 0, 0.08)',
+                  WebkitTextStroke: '1px rgba(204, 255, 0, 0.12)',
                   letterSpacing: '-0.05em',
-                  lineHeight: '1'
+                  lineHeight: '1',
+                  textAlign: 'center'
                 }}
               >
                 AHMER
@@ -79,12 +80,12 @@ export default function HeroSection() {
             <div className="relative z-10 flex justify-center" style={{ zIndex: 2 }}>
               <div className="relative">
                 <img
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6904e61633b19b2507b45d09/4799cf95f_referenceimage1.png"
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6904e61633b19b2507b45d09/7dd22a5d5_referenceimage12.png"
                   alt="Ahmer"
-                  className="w-64 h-auto sm:w-80 md:w-96 object-cover object-top"
+                  className="w-72 h-auto sm:w-80 md:w-96 lg:w-[450px] object-cover object-top"
                   style={{
-                    maskImage: 'linear-gradient(to bottom, black 60%, transparent 95%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 95%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
+                    maskImage: 'linear-gradient(to bottom, black 50%, transparent 98%), linear-gradient(to right, transparent 2%, black 8%, black 92%, transparent 98%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 98%), linear-gradient(to right, transparent 2%, black 8%, black 92%, transparent 98%)',
                     maskComposite: 'intersect',
                     WebkitMaskComposite: 'source-in'
                   }}
