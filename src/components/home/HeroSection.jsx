@@ -61,30 +61,35 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="relative max-w-4xl mx-auto px-4"
           >
-            {/* Large Background Text "AHMER" */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+            {/* Large Background Text "AHMER" - Behind the image */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden" style={{ zIndex: 1 }}>
               <h2 
                 className="text-[8rem] sm:text-[12rem] md:text-[16rem] lg:text-[24rem] font-black text-transparent select-none"
                 style={{
-                  WebkitTextStroke: '1px rgba(204, 255, 0, 0.1)',
-                  letterSpacing: '-0.05em'
+                  WebkitTextStroke: '1px rgba(204, 255, 0, 0.08)',
+                  letterSpacing: '-0.05em',
+                  lineHeight: '1'
                 }}
               >
                 AHMER
               </h2>
             </div>
 
-            {/* Photo */}
-            <div className="relative z-10 flex justify-center">
-              <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6904e61633b19b2507b45d09/4799cf95f_referenceimage1.png"
-                alt="Ahmer"
-                className="w-64 h-auto sm:w-80 md:w-96 object-cover object-top"
-                style={{
-                  maskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)'
-                }}
-              />
+            {/* Photo with gradient mask blending */}
+            <div className="relative z-10 flex justify-center" style={{ zIndex: 2 }}>
+              <div className="relative">
+                <img
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6904e61633b19b2507b45d09/4799cf95f_referenceimage1.png"
+                  alt="Ahmer"
+                  className="w-64 h-auto sm:w-80 md:w-96 object-cover object-top"
+                  style={{
+                    maskImage: 'linear-gradient(to bottom, black 60%, transparent 95%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 95%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
+                    maskComposite: 'intersect',
+                    WebkitMaskComposite: 'source-in'
+                  }}
+                />
+              </div>
             </div>
           </motion.div>
         </div>

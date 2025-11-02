@@ -190,7 +190,7 @@ export default function Layout({ children, currentPageName }) {
             </div>
             <div>
               <h4 className="font-semibold mb-4 text-[#F5F5F5]">Let's Connect</h4>
-              <div className="flex items-center gap-4 mb-4">
+              <div className="flex items-center justify-center gap-4 mb-6">
                 <a
                   href="https://www.linkedin.com/in/ahmer0"
                   target="_blank"
@@ -214,12 +214,14 @@ export default function Layout({ children, currentPageName }) {
                   <Github size={24} />
                 </a>
               </div>
-              <button
-                onClick={() => handleNavClick("Contact")}
-                className="inline-block px-6 py-2 bg-[#CCFF00] text-black rounded font-semibold button-hover"
-              >
-                Work With Me
-              </button>
+              <div className="flex justify-center">
+                <button
+                  onClick={() => handleNavClick("Contact")}
+                  className="px-6 py-2 bg-[#CCFF00] text-black rounded font-semibold button-hover"
+                >
+                  Work With Me
+                </button>
+              </div>
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-[#333333] text-center text-sm text-[#A0A0A0]">

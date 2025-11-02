@@ -5,8 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { Send, Loader2, CheckCircle, Quote } from "lucide-react";
-import TestimonialsSection from "../components/testimonials/TestimonialsSection";
+import { Send, Loader2, CheckCircle, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -17,6 +16,28 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const testimonials = [
+    {
+      quote: "We were wasting hours on manual lead qualification. Ahmer's AI agent integrated directly with our CRM and now automatically scores 90% of our leads. Our MQL-to-SQL conversion rate is up 15%. The highest-ROI project we've done this year.",
+      name: "Tony Dinh",
+      title: "Founder",
+      company: "Black Magic"
+    },
+    {
+      quote: "As a small team, we were drowning in support tickets. Ahmer's agent now handles 60% of our common inquiries, letting us focus on growth. Our customer response time went from 24 hours to instant, and our CSAT scores have never been higher.",
+      name: "Corey Moen",
+      title: "Founder & Creative Director",
+      company: "Calico"
+    },
+    {
+      quote: "Our team was buried in manual data entry from client reports. Ahmer built a custom solution that saved us over 30 hours a week and reduced our data errors to zero. A total professional.",
+      name: "Carlea O'Hagan",
+      title: "Founder & CEO",
+      company: "Jaded Beauty"
+    }
+  ];
 
   const handleChange = (e) => {
     setFormData({
@@ -51,10 +72,96 @@ export default function Contact() {
     }
   };
 
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
   return (
     <div className="pt-20 min-h-screen bg-[#111111]">
-      <TestimonialsSection />
+      {/* What Clients Say Section - Full Width */}
+      <section className="py-16 sm:py-24 md:py-32 bg-[#111111]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-[#F5F5F5]">
+              What Clients <span className="text-[#CCFF00]">Say</span>
+            </h2>
+            <p className="text-base sm:text-lg text-[#A0A0A0]">
+              Real results from real businesses
+            </p>
+          </motion.div>
 
+          {/* Compact Testimonial Carousel */}
+          <div className="relative">
+            <motion.div
+              key={currentTestimonial}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3 }}
+              className="bg-gradient-to-br from-[#CCFF00]/10 via-[#CCFF00]/5 to-transparent border border-[#CCFF00]/20 rounded-lg p-6 sm:p-8"
+            >
+              <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-[#CCFF00] mb-4" />
+              
+              <p className="text-base sm:text-lg text-[#F5F5F5] leading-relaxed mb-6">
+                "{testimonials[currentTestimonial].quote}"
+              </p>
+              
+              <div className="flex items-center justify-between flex-wrap gap-4">
+                <div>
+                  <p className="text-sm sm:text-base font-bold text-[#F5F5F5]">
+                    {testimonials[currentTestimonial].name}
+                  </p>
+                  <p className="text-xs sm:text-sm text-[#A0A0A0]">
+                    {testimonials[currentTestimonial].title}
+                  </p>
+                  <p className="text-xs sm:text-sm text-[#CCFF00]">
+                    {testimonials[currentTestimonial].company}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={prevTestimonial}
+                    className="p-2 rounded border border-[#333333] hover:border-[#CCFF00] transition-colors"
+                  >
+                    <ChevronLeft className="w-5 h-5 text-[#F5F5F5]" />
+                  </button>
+                  <button
+                    onClick={nextTestimonial}
+                    className="p-2 rounded border border-[#333333] hover:border-[#CCFF00] transition-colors"
+                  >
+                    <ChevronRight className="w-5 h-5 text-[#F5F5F5]" />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2 mt-6">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === currentTestimonial ? 'bg-[#CCFF00] w-8' : 'bg-[#333333]'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
       <section className="py-16 sm:py-24 md:py-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -177,14 +284,12 @@ export default function Contact() {
               </Card>
             </motion.div>
 
-            {/* Right Column - What Happens Next & Testimonial */}
+            {/* Right Column - What Happens Next Only */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="space-y-6 sm:space-y-8"
             >
-              {/* What Happens Next */}
               <div>
                 <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-[#F5F5F5]">What Happens Next?</h3>
                 <div className="space-y-6">
@@ -231,18 +336,6 @@ export default function Contact() {
                   </Card>
                 </div>
               </div>
-
-              {/* Featured Testimonial */}
-              <Card className="bg-gradient-to-br from-[#CCFF00]/5 to-transparent border-[#CCFF00]/20 p-6 sm:p-8">
-                <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-[#CCFF00] mb-4" />
-                <p className="text-sm sm:text-base text-[#F5F5F5] mb-6 leading-relaxed">
-                  "We were wasting hours on manual lead qualification. Ahmer's AI agent integrated directly with our CRM and now automatically scores 90% of our leads."
-                </p>
-                <div>
-                  <p className="font-bold text-[#F5F5F5] text-sm sm:text-base">Tony Dinh</p>
-                  <p className="text-xs sm:text-sm text-[#A0A0A0]">Founder, Black Magic</p>
-                </div>
-              </Card>
             </motion.div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
@@ -183,9 +183,15 @@ export default function AIDemoSection() {
                         <div className="max-w-[85%] bg-[#111111] border border-[#333333] rounded-lg p-3 sm:p-4">
                           {isAnalyzing ? (
                             <div className="space-y-2">
-                              <div className="h-3 bg-[#333333] rounded animate-pulse w-full"></div>
-                              <div className="h-3 bg-[#333333] rounded animate-pulse w-4/5"></div>
-                              <div className="h-3 bg-[#333333] rounded animate-pulse w-3/4"></div>
+                              <div className="h-3 bg-[#333333] rounded animate-pulse w-full relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#CCFF00]/10 to-transparent animate-shimmer" />
+                              </div>
+                              <div className="h-3 bg-[#333333] rounded animate-pulse w-4/5 relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#CCFF00]/10 to-transparent animate-shimmer" style={{ animationDelay: '0.2s' }} />
+                              </div>
+                              <div className="h-3 bg-[#333333] rounded animate-pulse w-3/4 relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#CCFF00]/10 to-transparent animate-shimmer" style={{ animationDelay: '0.4s' }} />
+                              </div>
                             </div>
                           ) : (
                             <div className="text-sm sm:text-base">
@@ -202,6 +208,20 @@ export default function AIDemoSection() {
           </div>
         </motion.div>
       </div>
+
+      <style jsx>{`
+        @keyframes shimmer {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+        .animate-shimmer {
+          animation: shimmer 2s infinite;
+        }
+      `}</style>
     </section>
   );
 }

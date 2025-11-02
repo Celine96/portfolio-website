@@ -7,7 +7,9 @@ export default function Home() {
   return (
     <div className="pt-20">
       <HeroSection />
+      <div className="py-16 sm:py-20 md:py-24" />
       <TechStack />
+      <div className="py-16 sm:py-20 md:py-24" />
       <AIDemoSection />
     </div>
   );
