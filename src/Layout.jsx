@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { Menu, X, Linkedin, Mail } from "lucide-react";
+import { Menu, X, Linkedin, Mail, Github } from "lucide-react";
 
 export default function Layout({ children, currentPageName }) {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -16,6 +17,10 @@ export default function Layout({ children, currentPageName }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const navLinks = [
     { name: "Home", path: "Home" },
     { name: "About", path: "AboutMe" },
@@ -26,6 +31,12 @@ export default function Layout({ children, currentPageName }) {
 
   const isActive = (pageName) => {
     return location.pathname === createPageUrl(pageName);
+  };
+
+  const handleNavClick = (path) => {
+    navigate(createPageUrl(path));
+    setIsMobileMenuOpen(false);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -80,22 +91,23 @@ export default function Layout({ children, currentPageName }) {
           isScrolled ? "bg-[#111111]/95 backdrop-blur-sm border-b border-[#333333]" : ""
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link
               to={createPageUrl("Home")}
+              onClick={() => window.scrollTo(0, 0)}
               className="text-xl font-bold tracking-tight text-[#F5F5F5] hover:text-[#CCFF00] transition-colors"
             >
-              AHMER.
+              AHMER<span className="text-[#CCFF00]">.</span>
             </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
-                <Link
+                <button
                   key={link.name}
-                  to={createPageUrl(link.path)}
+                  onClick={() => handleNavClick(link.path)}
                   className={`text-sm font-medium transition-colors ${
                     isActive(link.path)
                       ? "text-[#F5F5F5]"
@@ -103,14 +115,14 @@ export default function Layout({ children, currentPageName }) {
                   }`}
                 >
                   {link.name}
-                </Link>
+                </button>
               ))}
-              <Link
-                to={createPageUrl("Contact")}
+              <button
+                onClick={() => handleNavClick("Contact")}
                 className="px-6 py-2.5 bg-[#CCFF00] text-black rounded font-semibold button-hover"
               >
-                Contact
-              </Link>
+                Automate Now
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -126,26 +138,24 @@ export default function Layout({ children, currentPageName }) {
           {isMobileMenuOpen && (
             <div className="md:hidden py-4 space-y-2 border-t border-[#333333]">
               {navLinks.map((link) => (
-                <Link
+                <button
                   key={link.name}
-                  to={createPageUrl(link.path)}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-4 py-2 rounded text-sm font-medium transition-colors ${
+                  onClick={() => handleNavClick(link.path)}
+                  className={`block w-full text-left px-4 py-2 rounded text-sm font-medium transition-colors ${
                     isActive(link.path)
                       ? "bg-[#1A1A1A] text-[#F5F5F5]"
                       : "text-[#A0A0A0] hover:bg-[#1A1A1A]"
                   }`}
                 >
                   {link.name}
-                </Link>
+                </button>
               ))}
-              <Link
-                to={createPageUrl("Contact")}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-2.5 bg-[#CCFF00] text-black rounded font-semibold text-center mx-4"
+              <button
+                onClick={() => handleNavClick("Contact")}
+                className="block w-full px-4 py-2.5 bg-[#CCFF00] text-black rounded font-semibold text-center mx-4"
               >
-                Contact
-              </Link>
+                Automate Now
+              </button>
             </div>
           )}
         </div>
@@ -156,10 +166,10 @@ export default function Layout({ children, currentPageName }) {
 
       {/* Footer */}
       <footer className="border-t border-[#333333] mt-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">AHMER.</h3>
+              <h3 className="text-xl font-bold mb-4">AHMER<span className="text-[#CCFF00]">.</span></h3>
               <p className="text-[#A0A0A0] text-sm leading-relaxed">
                 AI Automation Expert for high-growth businesses. Building intelligent systems that scale.
               </p>
@@ -168,13 +178,13 @@ export default function Layout({ children, currentPageName }) {
               <h4 className="font-semibold mb-4 text-[#F5F5F5]">Quick Links</h4>
               <div className="space-y-2">
                 {navLinks.map((link) => (
-                  <Link
+                  <button
                     key={link.name}
-                    to={createPageUrl(link.path)}
+                    onClick={() => handleNavClick(link.path)}
                     className="block text-sm text-[#A0A0A0] hover:text-[#CCFF00] transition-colors"
                   >
                     {link.name}
-                  </Link>
+                  </button>
                 ))}
               </div>
             </div>
@@ -195,13 +205,21 @@ export default function Layout({ children, currentPageName }) {
                 >
                   <Mail size={24} />
                 </a>
+                <a
+                  href="https://github.com/ahme-r"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#A0A0A0] hover:text-[#CCFF00] transition-colors"
+                >
+                  <Github size={24} />
+                </a>
               </div>
-              <Link
-                to={createPageUrl("Contact")}
+              <button
+                onClick={() => handleNavClick("Contact")}
                 className="inline-block px-6 py-2 bg-[#CCFF00] text-black rounded font-semibold button-hover"
               >
-                Get in Touch
-              </Link>
+                Work With Me
+              </button>
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-[#333333] text-center text-sm text-[#A0A0A0]">
