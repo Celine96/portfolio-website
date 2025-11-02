@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -179,14 +180,14 @@ export default function Contact() {
           </motion.div>
 
           {/* Two Column Layout */}
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:items-center">
             {/* Left Column - Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Card className="bg-[#1A1A1A] border-[#333333] p-6 sm:p-8 md:p-12 h-full">
+              <Card className="bg-[#1A1A1A] border-[#333333] p-6 sm:p-8 md:p-12">
                 {!isSuccess ? (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="space-y-2">
@@ -284,13 +285,14 @@ export default function Contact() {
               </Card>
             </motion.div>
 
-            {/* Right Column - What Happens Next Only */}
+            {/* Right Column - What Happens Next (Vertically Centered) */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex items-center"
             >
-              <div>
+              <div className="w-full">
                 <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-[#F5F5F5]">What Happens Next?</h3>
                 <div className="space-y-6">
                   <Card className="bg-[#1A1A1A] border-[#333333] p-6">

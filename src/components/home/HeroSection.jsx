@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -59,17 +60,18 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="relative max-w-4xl mx-auto px-4"
+            className="relative max-w-5xl mx-auto px-4"
           >
-            {/* Large Background Text "AHMER" - Behind the image, properly scaled */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none overflow-visible w-full" style={{ zIndex: 1 }}>
+            {/* Large Background Text "AHMER" - Behind the image, properly scaled and centered */}
+            <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
               <h2 
-                className="text-[10rem] sm:text-[14rem] md:text-[18rem] lg:text-[22rem] font-black text-transparent select-none whitespace-nowrap"
+                className="text-[6rem] sm:text-[9rem] md:text-[12rem] lg:text-[15rem] font-black text-[#CCFF00] select-none"
                 style={{
-                  WebkitTextStroke: '1px rgba(204, 255, 0, 0.12)',
-                  letterSpacing: '-0.05em',
+                  opacity: '0.12',
+                  letterSpacing: '-0.02em',
                   lineHeight: '1',
-                  textAlign: 'center'
+                  fontFamily: 'Inter, sans-serif',
+                  fontWeight: '900'
                 }}
               >
                 AHMER
