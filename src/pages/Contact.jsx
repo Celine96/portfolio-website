@@ -96,10 +96,10 @@ export default function Contact() {
             className="text-center mb-12 sm:mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-[#F5F5F5]">
-              What Clients <span className="text-[#CCFF00]">Say</span>
+              고객님들의 <span className="text-[#CCFF00]">후기</span>
             </h2>
             <p className="text-base sm:text-lg text-[#A0A0A0]">
-              Real results from real businesses
+              실제 비즈니스의 실제 결과
             </p>
           </motion.div>
 
@@ -174,10 +174,10 @@ export default function Contact() {
             className="text-center mb-12 sm:mb-16"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-[#F5F5F5]">
-              Ready to <span className="text-[#CCFF00]">Transform</span> Your Business?
+              비즈니스를 <span className="text-[#CCFF00]">혁신</span>할 준비가 되셨나요?
             </h1>
             <p className="text-base sm:text-lg text-[#A0A0A0] max-w-3xl mx-auto">
-              Describe your most time-consuming task. I'll analyze it and deliver a personalized automation strategy.
+              가장 시간이 많이 걸리는 업무를 설명해주세요. 분석 후 맞춤형 자동화 전략을 제시해드리겠습니다.
             </p>
           </motion.div>
 
@@ -194,7 +194,7 @@ export default function Contact() {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="space-y-2">
                       <Label htmlFor="name" className="text-sm sm:text-base font-medium text-[#F5F5F5]">
-                        Your Name *
+                        이름 *
                       </Label>
                       <Input
                         id="name"
@@ -210,7 +210,7 @@ export default function Contact() {
 
                     <div className="space-y-2">
                       <Label htmlFor="email" className="text-sm sm:text-base font-medium text-[#F5F5F5]">
-                        Email Address *
+                        이메일 주소 *
                       </Label>
                       <Input
                         id="email"
@@ -226,7 +226,7 @@ export default function Contact() {
 
                     <div className="space-y-2">
                       <Label htmlFor="company" className="text-sm sm:text-base font-medium text-[#F5F5F5]">
-                        Company <span className="text-[#A0A0A0] font-normal">(Optional)</span>
+                        회사명 <span className="text-[#A0A0A0] font-normal">(선택)</span>
                       </Label>
                       <Input
                         id="company"
@@ -241,7 +241,7 @@ export default function Contact() {
 
                     <div className="space-y-2">
                       <Label htmlFor="task_description" className="text-sm sm:text-base font-medium text-[#F5F5F5]">
-                        Describe Your Repetitive Task *
+                        반복되는 업무 설명 *
                       </Label>
                       <Textarea
                         id="task_description"
@@ -249,11 +249,11 @@ export default function Contact() {
                         required
                         value={formData.task_description}
                         onChange={handleChange}
-                        placeholder="Every day, I manually copy data from customer emails into our CRM..."
+                        placeholder="매일 고객 이메일에서 데이터를 수동으로 CRM에 입력합니다..."
                         className="bg-[#111111] border-[#333333] text-[#F5F5F5] placeholder:text-[#A0A0A0] focus:border-[#CCFF00] min-h-[150px] resize-none"
                       />
                       <p className="text-xs sm:text-sm text-[#A0A0A0]">
-                        Be specific. The more detail you provide, the better I can help.
+                        구체적으로 작성해주세요. 자세할수록 더 정확한 전략을 제시할 수 있습니다.
                       </p>
                     </div>
 
@@ -295,7 +295,7 @@ export default function Contact() {
               className="flex items-center"
             >
               <div className="w-full">
-                <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-[#F5F5F5]">What Happens Next?</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-[#F5F5F5]">다음 단계</h3>
                 <div className="space-y-6">
                   <Card className="bg-[#1A1A1A] border-[#333333] p-6">
                     <div className="flex gap-4">
@@ -303,9 +303,9 @@ export default function Contact() {
                         <span className="text-lg sm:text-xl font-bold text-[#CCFF00]">1</span>
                       </div>
                       <div>
-                        <h4 className="font-semibold mb-2 text-[#F5F5F5] text-sm sm:text-base">Instant AI Analysis</h4>
+                        <h4 className="font-semibold mb-2 text-[#F5F5F5] text-sm sm:text-base">AI 자동 분석</h4>
                         <p className="text-xs sm:text-sm text-[#A0A0A0]">
-                          My AI agent analyzes your task and sends initial insights to your inbox
+                          AI 에이전트가 업무를 분석하고 초기 인사이트를 메일로 발송해드립니다
                         </p>
                       </div>
                     </div>
@@ -317,9 +317,9 @@ export default function Contact() {
                         <span className="text-lg sm:text-xl font-bold text-[#CCFF00]">2</span>
                       </div>
                       <div>
-                        <h4 className="font-semibold mb-2 text-[#F5F5F5] text-sm sm:text-base">Personal Review</h4>
+                        <h4 className="font-semibold mb-2 text-[#F5F5F5] text-sm sm:text-base">개인 맞춤 검토</h4>
                         <p className="text-xs sm:text-sm text-[#A0A0A0]">
-                          I personally review your challenge and craft a custom strategy
+                          직접 검토 후 귀사 상황에 맞춘 전략을 수립합니다
                         </p>
                       </div>
                     </div>
@@ -331,9 +331,9 @@ export default function Contact() {
                         <span className="text-lg sm:text-xl font-bold text-[#CCFF00]">3</span>
                       </div>
                       <div>
-                        <h4 className="font-semibold mb-2 text-[#F5F5F5] text-sm sm:text-base">Strategic Call</h4>
+                        <h4 className="font-semibold mb-2 text-[#F5F5F5] text-sm sm:text-base">전략 상담</h4>
                         <p className="text-xs sm:text-sm text-[#A0A0A0]">
-                          Within 24 hours, I reach out to discuss your automation roadmap
+                          24시간 내에 연락드려 자동화 로드맵을 함께 논의합니다
                         </p>
                       </div>
                     </div>
