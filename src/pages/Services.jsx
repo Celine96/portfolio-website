@@ -18,8 +18,8 @@ export default function Services() {
     {
       id: 1,
       icon: TrendingUp,
-      title: "리드 검증 및 스코어링",
-      description: "AI 에이전트로 영업 파이프라인을 자동화하여 리드를 즉시 검증하고, 우수 고객을 실시간으로 팀에 전달합니다.",
+      title: "AI 에이전트 구축 및 배포",
+      description: "맞춤형 AI 에이전트를 구축하고 배포하여 반복적인 작업을 자동화하고 비즈니스 효율성을 극대화합니다.",
     },
     {
       id: 2,
