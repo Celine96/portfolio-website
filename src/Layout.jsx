@@ -178,13 +178,14 @@ export default function Layout({ children, currentPageName }) {
               <h4 className="font-semibold mb-4 text-[#F5F5F5]">Quick Links</h4>
               <div className="space-y-2">
                 {navLinks.map((link) => (
-                  <button
+                  <Link
                     key={link.name}
-                    onClick={() => handleNavClick(link.path)}
+                    to={createPageUrl(link.path)}
+                    onClick={() => window.scrollTo(0, 0)}
                     className="block text-sm text-[#A0A0A0] hover:text-[#CCFF00] transition-colors"
                   >
                     {link.name}
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>
