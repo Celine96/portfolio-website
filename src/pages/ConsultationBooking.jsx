@@ -36,7 +36,27 @@ export default function ConsultationBooking() {
   });
 
   const createBookingMutation = useMutation({
-    mutationFn: (bookingData) => base44.entities.ConsultationBooking.create(bookingData),
+    mutationFn: async (bookingData) => {
+      const booking = await base44.entities.ConsultationBooking.create(bookingData);
+      
+      // 고객에게 이메일 발송
+      await base44.functions.invoke('sendBookingNotification', {
+        booking: bookingData,
+        recipientEmail: bookingData.email,
+        recipientType: 'customer',
+        actionType: 'created'
+      });
+      
+      // 관리자에게 이메일 발송
+      await base44.functions.invoke('sendBookingNotification', {
+        booking: bookingData,
+        recipientEmail: 'ehmar07@gmail.com',
+        recipientType: 'admin',
+        actionType: 'created'
+      });
+      
+      return booking;
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["consultationBookings"] });
       setSubmitStatus("success");
