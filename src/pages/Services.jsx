@@ -18,38 +18,38 @@ export default function Services() {
     {
       id: 1,
       icon: TrendingUp,
-      title: "Lead Qualification & Scoring",
-      description: "Automate your sales pipeline with AI agents that instantly qualify leads, score prospects, and route hot opportunities to your team in real-time.",
+      title: "리드 검증 및 스코어링",
+      description: "AI 에이전트로 영업 파이프라인을 자동화하여 리드를 즉시 검증하고, 우수 고객을 실시간으로 팀에 전달합니다.",
     },
     {
       id: 2,
       icon: Bot,
-      title: "Customer Support Automation",
-      description: "Build intelligent support systems that triage tickets, detect urgency, provide instant responses, and escalate complex issues automatically.",
+      title: "고객지원 자동화",
+      description: "티켓을 분류하고 긴급도를 감지하며 즉시 응답을 제공하고 복잡한 문제를 자동으로 에스컬레이션하는 지능형 지원 시스템을 구축합니다.",
     },
     {
       id: 3,
       icon: FileText,
-      title: "Content Generation",
-      description: "Transform single pieces of content into multi-platform campaigns. AI-powered workflows that maintain your brand voice across all channels.",
+      title: "컨텐츠 생성",
+      description: "단일 컨텐츠를 다중 플랫폼 캠페인으로 변환합니다. 모든 채널에서 브랜드 톤을 유지하는 AI 워크플로우입니다.",
     },
     {
       id: 4,
       icon: Mail,
-      title: "Email Personalization",
-      description: "Create hyper-personalized email sequences that adapt based on behavior, demographics, and engagement patterns to maximize conversions.",
+      title: "이메일 개인화",
+      description: "행동, 특성, 참여도에 기반해 자동으로 조정되는 초개인화 이메일 시퀀스를 생성하여 전환율을 극대화합니다.",
     },
     {
       id: 5,
       icon: Users,
-      title: "Client Onboarding",
-      description: "Streamline your entire onboarding process from contract signing to welcome sequences with intelligent automation.",
+      title: "클라이언트 온보딩",
+      description: "계약 서명부터 환영 시퀀스까지 전체 온보딩 프로세스를 지능형 자동화로 간소화합니다.",
     },
     {
       id: 6,
       icon: Zap,
-      title: "Custom AI Development",
-      description: "Build bespoke AI agents tailored to your unique business needs. From data extraction to decision-making, create your digital workforce.",
+      title: "맞춤형 AI 개발",
+      description: "귀사의 고유한 비즈니스 니즈에 맞춘 AI 에이전트를 구축합니다. 데이터 추출부터 의사결정까지 디지털 인력을 창출합니다.",
     },
   ];
 
@@ -65,10 +65,10 @@ export default function Services() {
             className="text-center mb-12 sm:mb-20"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-[#F5F5F5]">
-              Your Path to <span className="text-[#CCFF00]">Efficiency</span>
+              효율성으로 가는 <span className="text-[#CCFF00]">길</span>
             </h1>
             <p className="text-base sm:text-lg text-[#A0A0A0] max-w-3xl mx-auto">
-              Strategic AI automation solutions designed to transform your business operations
+              비즈니스 운영을 혁신하도록 설계된 전략적 AI 자동화 솔루션
             </p>
           </motion.div>
 

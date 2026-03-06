@@ -36,11 +36,11 @@ export default function Tools() {
             className="text-center mb-12 sm:mb-16"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-[#F5F5F5]">
-              Quantify Your <span className="text-[#CCFF00]">Savings</span>
+              절감 효과를 <span className="text-[#CCFF00]">계산</span>하세요
             </h1>
             <p className="text-base sm:text-lg text-[#A0A0A0] max-w-3xl mx-auto">
-              Automation isn't just about efficiency, it's about measurable returns. 
-              Calculate how AI can transform your bottom line.
+              자동화는 단순히 효율성에 관한 것이 아니라 측정 가능한 수익성에 관한 것입니다. 
+              AI가 귀사의 실적을 어떻게 변환할 수 있는지 계산해보세요.
             </p>
           </motion.div>
         </div>

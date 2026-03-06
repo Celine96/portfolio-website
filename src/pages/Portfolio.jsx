@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,49 +11,49 @@ export default function Portfolio() {
     {
       id: 1,
       name: "LeadGenius Pro",
-      problem: "Manual lead qualification and slow follow-up meant high-value sales opportunities were frequently missed or delayed.",
-      solution: "Built an AI agent to instantly analyze inbound web leads, extract key intent/company data, qualify leads (Hot/Warm/Cold), and automatically push 'Hot' leads to CRM with a personalized first email.",
-      impact: "Reduced lead response time from hours to seconds, boosting sales team efficiency by 25% and increasing MQL-to-SQL conversion by 15%.",
+      problem: "수동 리드 검증과 느린 팔로우업으로 인해 높은 가치의 영업 기회를 놓치거나 지연되는 일이 빈번했습니다.",
+      solution: "유입되는 웹 리드를 즉시 분석하고 핵심 의도/회사 정보를 추출하며 리드를 검증(우수/보통/일반)한 후 '우수' 리드를 맞춤형 이메일과 함께 CRM에 자동 전송하는 AI 에이전트를 구축했습니다.",
+      impact: "리드 응답 시간을 시간 단위에서 초 단위로 단축하여 영업팀 효율성을 25% 향상시키고 MQL-to-SQL 전환율을 15% 증가시켰습니다.",
       metrics: [
-        { icon: TrendingUp, label: "Sales Team Efficiency", value: "+25%" },
-        { icon: Clock, label: "Response Time", value: "< 5 min" },
-        { icon: Users, label: "MQL-to-SQL Conversion", value: "+15%" }
+        { icon: TrendingUp, label: "영업팀 효율성", value: "+25%" },
+        { icon: Clock, label: "응답 시간", value: "< 5분" },
+        { icon: Users, label: "MQL-SQL 전환", value: "+15%" }
       ]
     },
     {
       id: 2,
       name: "SupportBot Prime",
-      problem: "Customer support team was overwhelmed with repetitive queries, leading to slow response times and high operational costs.",
-      solution: "Deployed an AI-powered triage system that automatically categorizes tickets by urgency and topic, provides instant responses to common questions, and escalates complex issues to human agents.",
-      impact: "Cut average response time by 70%, resolved 60% of tickets automatically, and reduced support costs by $4,000/month while improving customer satisfaction scores.",
+      problem: "고객지원팀이 반복적인 문의로 압박받으면서 느린 응답 시간과 높은 운영 비용이 발생했습니다.",
+      solution: "티켓을 우선순위와 주제별로 자동 분류하고 일반적인 질문에 즉시 응답하며 복잡한 문제를 담당자에게 에스컬레이션하는 AI 기반 분류 시스템을 배포했습니다.",
+      impact: "평균 응답 시간을 70% 단축하고 60%의 티켓을 자동 해결하며 월 $4,000의 비용을 절감하면서 고객 만족도도 향상시켰습니다.",
       metrics: [
-        { icon: Clock, label: "Response Time", value: "-70%" },
-        { icon: TrendingUp, label: "Tickets Automated", value: "60%" },
-        { icon: DollarSign, label: "Monthly Savings", value: "$4K" }
+        { icon: Clock, label: "응답 시간", value: "-70%" },
+        { icon: TrendingUp, label: "자동화 티켓", value: "60%" },
+        { icon: DollarSign, label: "월 절감액", value: "$4K" }
       ]
     },
     {
       id: 3,
       name: "Content Architect",
-      problem: "Marketing team spent hours manually adapting content for different platforms, limiting output and campaign velocity.",
-      solution: "Created an AI workflow that takes long-form content and automatically generates platform-optimized versions (social posts, email sequences, summaries) while maintaining brand voice and key messaging.",
-      impact: "Increased content output by 150%, reduced production time from 3 hours to 15 minutes per piece, and improved cross-platform engagement by 35%.",
+      problem: "마케팅팀이 컨텐츠를 다양한 플랫폼에 맞춰 수동으로 조정하는 데 시간을 소비하면서 산출량과 캠페인 속도가 제한되었습니다.",
+      solution: "장문 컨텐츠를 플랫폼별 최적화 버전(소셜 포스트, 이메일 시퀀스, 요약)으로 자동 생성하면서 브랜드 톤과 핵심 메시지를 유지하는 AI 워크플로우를 구축했습니다.",
+      impact: "컨텐츠 산출량을 150% 증가시키고 제작 시간을 3시간에서 15분으로 단축했으며 크로스플랫폼 참여도를 35% 향상시켰습니다.",
       metrics: [
-        { icon: TrendingUp, label: "Content Output", value: "+150%" },
-        { icon: Clock, label: "Time Saved", value: "2.75h/piece" },
-        { icon: Users, label: "Engagement", value: "+35%" }
+        { icon: TrendingUp, label: "컨텐츠 산출", value: "+150%" },
+        { icon: Clock, label: "시간 절감", value: "2.75h/개" },
+        { icon: Users, label: "참여도", value: "+35%" }
       ]
     },
     {
       id: 4,
       name: "Data Scout",
-      problem: "Sales team wasted hours manually researching prospects and updating CRM records with outdated or incomplete information.",
-      solution: "Built an intelligent data enrichment agent that automatically finds, verifies, and updates prospect information from multiple sources, maintaining clean and actionable CRM data.",
-      impact: "Saved 12 hours per week in manual data entry, improved data accuracy by 90%, and enabled sales team to focus on high-value selling activities.",
+      problem: "영업팀이 잠재고객을 수동으로 조사하고 CRM 기록을 구식이거나 불완전한 정보로 업데이트하느라 시간을 낭비했습니다.",
+      solution: "다양한 소스에서 잠재고객 정보를 자동으로 찾아 검증하고 업데이트하여 깨끗하고 실행 가능한 CRM 데이터를 유지하는 지능형 데이터 강화 에이전트를 구축했습니다.",
+      impact: "주간 수동 데이터 입력에서 12시간을 절감하고 데이터 정확도를 90% 향상시키며 영업팀이 고가치 판매 활동에 집중하도록 했습니다.",
       metrics: [
-        { icon: Clock, label: "Weekly Time Saved", value: "12h" },
-        { icon: TrendingUp, label: "Data Accuracy", value: "+90%" },
-        { icon: Users, label: "Sales Focus", value: "100%" }
+        { icon: Clock, label: "주간 시간 절감", value: "12h" },
+        { icon: TrendingUp, label: "데이터 정확도", value: "+90%" },
+        { icon: Users, label: "영업 집중도", value: "100%" }
       ]
     }
   ];
@@ -71,10 +70,10 @@ export default function Portfolio() {
             className="text-center mb-12 sm:mb-20"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-[#F5F5F5]">
-              Meet My <span className="text-[#CCFF00]">AI Agents</span>
+              제 <span className="text-[#CCFF00]">AI 에이전트</span>들을 만나보세요
             </h1>
             <p className="text-base sm:text-lg text-[#A0A0A0] max-w-2xl mx-auto">
-              Specialized automation systems designed to handle complex business processes
+              복잡한 비즈니스 프로세스를 처리하도록 설계된 전문화된 자동화 시스템
             </p>
           </motion.div>
 
@@ -128,7 +127,7 @@ export default function Portfolio() {
               {/* Header */}
               <div className="sticky top-0 bg-[#1A1A1A] border-b border-[#333333] p-4 sm:p-6 flex justify-between items-center z-10">
                 <h2 className="text-2xl sm:text-3xl font-bold text-[#F5F5F5]">
-                  {selectedAgent.name}
+                  {selectedAgent.name} - 사례 연구
                 </h2>
                 <button
                   onClick={() => setSelectedAgent(null)}
@@ -152,21 +151,21 @@ export default function Portfolio() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-3 text-[#F5F5F5]">The Problem</h3>
+                   <h3 className="text-lg sm:text-xl font-bold mb-3 text-[#F5F5F5]">문제점</h3>
                   <p className="text-sm sm:text-base text-[#A0A0A0] leading-relaxed">
                     {selectedAgent.problem}
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-3 text-[#F5F5F5]">The Solution</h3>
+                   <h3 className="text-lg sm:text-xl font-bold mb-3 text-[#F5F5F5]">해결책</h3>
                   <p className="text-sm sm:text-base text-[#A0A0A0] leading-relaxed">
                     {selectedAgent.solution}
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-3 text-[#F5F5F5]">The Impact</h3>
+                   <h3 className="text-lg sm:text-xl font-bold mb-3 text-[#F5F5F5]">결과</h3>
                   <p className="text-sm sm:text-base text-[#A0A0A0] leading-relaxed">
                     {selectedAgent.impact}
                   </p>

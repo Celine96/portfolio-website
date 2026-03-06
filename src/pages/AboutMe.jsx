@@ -7,23 +7,23 @@ export default function AboutMe() {
   const values = [
     {
       icon: Target,
-      title: "Impact-Driven",
-      description: "Every solution delivers measurable ROI. I focus on outcomes that transform your bottom line.",
+      title: "결과 중심",
+      description: "모든 솔루션은 측정 가능한 ROI를 제공합니다. 귀사의 실적 개선에 집중합니다.",
     },
     {
       icon: Code2,
-      title: "Precision Engineering",
-      description: "Crafting robust, error-free workflows with attention to every detail. Quality is non-negotiable.",
+      title: "정밀 엔지니어링",
+      description: "세부사항 하나하나에 신경 써서 견고하고 오류 없는 워크플로우를 구축합니다. 품질은 타협 대상이 아닙니다.",
     },
     {
       icon: Users,
-      title: "Client-Centric",
-      description: "Solutions built around your unique business challenges. Your success is my success.",
+      title: "고객 중심",
+      description: "귀사의 고유한 비즈니스 과제를 중심으로 구축된 솔루션입니다. 귀사의 성공이 제 성공입니다.",
     },
     {
       icon: Zap,
-      title: "Innovation First",
-      description: "Staying ahead of AI trends to deliver cutting-edge automation that gives you competitive advantage.",
+      title: "혁신 우선",
+      description: "AI 트렌드를 선도하며 경쟁 우위를 제공하는 최첨단 자동화를 제시합니다.",
     },
   ];
 
@@ -39,10 +39,10 @@ export default function AboutMe() {
             className="text-center mb-12 sm:mb-16"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-[#F5F5F5]">
-              The Expert Behind the <span className="text-[#CCFF00]">Automation</span>
+              자동화 전문가 <span className="text-[#CCFF00]">이수연</span>
             </h1>
             <p className="text-base sm:text-lg text-[#A0A0A0] max-w-3xl mx-auto">
-              Transforming complex challenges into elegant automated solutions
+              복잡한 비즈니스 과제를 우아한 자동화 솔루션으로 변환합니다
             </p>
           </motion.div>
 
@@ -68,21 +68,21 @@ export default function AboutMe() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="space-y-4 sm:space-y-6 order-1 lg:order-2"
             >
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#F5F5F5]">My Journey into Automation</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#F5F5F5]">자동화로의 여정</h2>
               <div className="space-y-4 text-sm sm:text-base text-[#A0A0A0] leading-relaxed">
                 <p>
-                  My fascination with efficiency began early. I've always been driven by a simple question: 
-                  <span className="text-[#CCFF00] font-semibold"> How can we do this better?</span>
+                  효율성에 대한 관심은 일찍부터 시작되었습니다. 저는 항상 한 가지 질문으로 주도되어 왔습니다: 
+                  <span className="text-[#CCFF00] font-semibold"> 이걸 더 잘할 수는 없을까?</span>
                 </p>
                 <p>
-                  When I discovered n8n and the power of AI agents, everything clicked. I realized I could combine 
-                  strategic thinking with technical precision to build systems that don't just automate tasks, they 
-                  transform entire workflows and unlock exponential productivity.
+                  AI 시스템 자동화의 힘을 발견했을 때, 모든 것이 명확해졌습니다. 전략적 사고와 기술적 정밀함을 결합하여 
+                  단순히 작업을 자동화하는 것이 아니라 전체 워크플로우를 변환하고 기하급수적인 생산성을 끌어낼 수 있는 
+                  시스템을 구축할 수 있다는 것을 깨달았습니다.
                 </p>
                 <p>
-                  Today, I specialize in crafting custom AI automation solutions that solve real business problems. 
-                  From lead qualification systems that never sleep to content generation workflows that scale effortlessly, 
-                  I build the invisible workforce that powers modern businesses.
+                  현재 저는 실제 비즈니스 과제를 해결하는 맞춤형 AI 자동화 솔루션 개발을 전문으로 합니다. 
+                  24/7 작동하는 리드 검증 시스템부터 무한으로 확장 가능한 컨텐츠 생성 워크플로우까지, 
+                  현대 비즈니스를 강력하게 만드는 보이지 않는 인력을 구축합니다.
                 </p>
               </div>
             </motion.div>
@@ -97,7 +97,7 @@ export default function AboutMe() {
             className="mb-16"
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center text-[#F5F5F5]">
-              Core <span className="text-[#CCFF00]">Values</span>
+              핵심 <span className="text-[#CCFF00]">가치</span>
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
