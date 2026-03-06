@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
+import { base44 } from "@/api/base44Client";
 import { Menu, X, Linkedin, Mail, Github } from "lucide-react";
 
 export default function Layout({ children, currentPageName }) {
@@ -20,6 +21,20 @@ export default function Layout({ children, currentPageName }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  const [user, setUser] = React.useState(null);
+  
+  React.useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const currentUser = await base44.auth.me();
+        setUser(currentUser);
+      } catch {
+        setUser(null);
+      }
+    };
+    fetchUser();
+  }, []);
 
   const navLinks = [
     { name: "Home", path: "Home" },
@@ -117,6 +132,18 @@ export default function Layout({ children, currentPageName }) {
                   {link.name}
                 </button>
               ))}
+              {user?.role === "admin" && (
+                <button
+                  onClick={() => handleNavClick("AdminDashboard")}
+                  className={`text-sm font-medium transition-colors ${
+                    isActive("AdminDashboard")
+                      ? "text-[#F5F5F5]"
+                      : "text-[#A0A0A0] hover:text-[#F5F5F5]"
+                  }`}
+                >
+                  관리자
+                </button>
+              )}
               <button
                 onClick={() => handleNavClick("ConsultationBooking")}
                 className="px-6 py-2.5 bg-[#CCFF00] text-black rounded font-semibold button-hover"
@@ -150,6 +177,18 @@ export default function Layout({ children, currentPageName }) {
                   {link.name}
                 </button>
               ))}
+              {user?.role === "admin" && (
+                <button
+                  onClick={() => handleNavClick("AdminDashboard")}
+                  className={`block w-full text-left px-4 py-2 rounded text-sm font-medium transition-colors ${
+                    isActive("AdminDashboard")
+                      ? "bg-[#1A1A1A] text-[#F5F5F5]"
+                      : "text-[#A0A0A0] hover:bg-[#1A1A1A]"
+                  }`}
+                >
+                  관리자
+                </button>
+              )}
               <button
                 onClick={() => {
                   handleNavClick("ConsultationBooking");

@@ -53,6 +53,7 @@ import Portfolio from './pages/Portfolio';
 import Services from './pages/Services';
 import Tools from './pages/Tools';
 import ConsultationBooking from './pages/ConsultationBooking';
+import AdminDashboard from './pages/AdminDashboard';
 import __Layout from './Layout.jsx';
 
 
@@ -63,6 +64,7 @@ export const PAGES = {
     "Services": Services,
     "Tools": Tools,
     "ConsultationBooking": ConsultationBooking,
+    "AdminDashboard": AdminDashboard,
 }
 
 export const pagesConfig = {
