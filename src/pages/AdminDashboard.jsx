@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { base44 } from "@/api/base44Client";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
 import { ko } from "date-fns/locale";
-import { Calendar, Mail, Phone, Building2, Clock, MessageSquare, Check, X } from "lucide-react";
+import { Calendar, Mail, Phone, Building2, Clock, MessageSquare, Check, X, Send } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 export default function AdminDashboard() {
   const [filterStatus, setFilterStatus] = useState("all");
+  const [notificationStatus, setNotificationStatus] = useState({});
+  const queryClient = useQueryClient();
 
   // 현재 사용자 정보 조회
   const { data: user, isLoading: userLoading } = useQuery({
@@ -30,6 +32,40 @@ export default function AdminDashboard() {
     initialData: [],
     enabled: user?.role === "admin"
   });
+
+  // 상태 변경 뮤테이션
+  const updateStatusMutation = useMutation({
+    mutationFn: async ({ bookingId, newStatus, booking }) => {
+      await base44.entities.ConsultationBooking.update(bookingId, { status: newStatus });
+      
+      // 상태 변경 알림 발송
+      const actionType = newStatus === "확정" ? "confirmed" : "cancelled";
+      await base44.functions.invoke('sendBookingNotification', {
+        booking: { ...booking, status: newStatus },
+        recipientEmail: booking.email,
+        recipientType: 'customer',
+        actionType
+      });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["adminBookings"] });
+    }
+  });
+
+  const handleStatusChange = (bookingId, newStatus, booking) => {
+    updateStatusMutation.mutate({ bookingId, newStatus, booking });
+    setNotificationStatus(prev => ({
+      ...prev,
+      [bookingId]: newStatus
+    }));
+    setTimeout(() => {
+      setNotificationStatus(prev => {
+        const updated = { ...prev };
+        delete updated[bookingId];
+        return updated;
+      });
+    }, 3000);
+  };
 
   if (userLoading) {
     return (
@@ -272,8 +308,34 @@ export default function AdminDashboard() {
                           <p className="text-sm text-[#A0A0A0]">{booking.message}</p>
                         </div>
                       )}
-                    </div>
-                  </Card>
+
+                      {booking.status === "예약 대기" && (
+                        <div className="pt-5 border-t border-[#333333] flex gap-2">
+                          <Button
+                            onClick={() => handleStatusChange(booking.id, "확정", booking)}
+                            disabled={updateStatusMutation.isPending}
+                            className="flex-1 bg-green-600 hover:bg-green-700 text-white text-xs py-2 flex items-center justify-center gap-1"
+                          >
+                            <Check size={14} /> 확정
+                          </Button>
+                          <Button
+                            onClick={() => handleStatusChange(booking.id, "취소", booking)}
+                            disabled={updateStatusMutation.isPending}
+                            className="flex-1 bg-red-600 hover:bg-red-700 text-white text-xs py-2 flex items-center justify-center gap-1"
+                          >
+                            <X size={14} /> 취소
+                          </Button>
+                        </div>
+                      )}
+
+                      {notificationStatus[booking.id] && (
+                        <div className="mt-4 p-2 bg-blue-500/20 border border-blue-400 rounded text-xs text-blue-400 flex items-center gap-2">
+                          <Send size={14} />
+                          알림 메일이 발송되었습니다
+                        </div>
+                      )}
+                      </div>
+                      </Card>
                 ))}
               </div>
             </div>
