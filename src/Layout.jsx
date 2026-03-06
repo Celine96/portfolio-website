@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -193,13 +192,13 @@ export default function Layout({ children, currentPageName }) {
               <h4 className="font-semibold mb-4 text-[#F5F5F5]">Let's Connect</h4>
               <div className="flex items-center justify-center gap-4 mb-6">
                 <a
-                  href="https://www.linkedin.com/in/ahmer0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#A0A0A0] hover:text-[#CCFF00] transition-colors"
-                >
-                  <Linkedin size={24} />
-                </a>
+                   href="https://www.linkedin.com/in/syceline/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="text-[#A0A0A0] hover:text-[#CCFF00] transition-colors"
+                 >
+                   <Linkedin size={24} />
+                 </a>
                 <a
                   href="mailto:ehmar07@gmail.com"
                   className="text-[#A0A0A0] hover:text-[#CCFF00] transition-colors"
