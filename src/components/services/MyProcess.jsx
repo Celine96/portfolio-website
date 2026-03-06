@@ -7,26 +7,26 @@ export default function MyProcess() {
     {
       number: "01",
       icon: Search,
-      title: "Discovery & Audit",
-      description: "First, I analyze your current workflows to find the single biggest automation opportunity."
+      title: "분석 & 감시",
+      description: "먼저 현재 워크플로우를 분석하여 가장 큰 자동화 기회를 찾습니다."
     },
     {
       number: "02",
       icon: Pencil,
-      title: "Strategy & Design",
-      description: "Next, I design a custom automation roadmap, starting with the highest-ROI tasks."
+      title: "전략 & 설계",
+      description: "다음으로 최고 ROI 작업부터 시작하는 맞춤형 자동화 로드맵을 설계합니다."
     },
     {
       number: "03",
       icon: Rocket,
-      title: "Build & Deploy",
-      description: "I build, test, and integrate your new AI agents with your existing software."
+      title: "구축 & 배포",
+      description: "새로운 AI 에이전트를 구축, 테스트하고 기존 소프트웨어와 통합합니다."
     },
     {
       number: "04",
       icon: TrendingUp,
-      title: "Optimize & Scale",
-      description: "We monitor performance, refine the agents, and identify the next process to automate."
+      title: "최적화 & 확장",
+      description: "성능을 모니터링하고 에이전트를 개선한 후 다음 자동화 대상을 식별합니다."
     }
   ];
 
@@ -41,10 +41,10 @@ export default function MyProcess() {
           className="text-center mb-12 sm:mb-20"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-[#F5F5F5]">
-            My <span className="text-[#CCFF00]">Process</span>
+            제 <span className="text-[#CCFF00]">프로세스</span>
           </h2>
           <p className="text-base sm:text-lg text-[#A0A0A0] max-w-2xl mx-auto">
-            A proven methodology for delivering high-impact automation solutions
+            고영향 자동화 솔루션을 제공하기 위한 입증된 방법론
           </p>
         </motion.div>
 
