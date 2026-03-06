@@ -121,7 +121,7 @@ export default function Layout({ children, currentPageName }) {
                 onClick={() => handleNavClick("Contact")}
                 className="px-6 py-2.5 bg-[#CCFF00] text-black rounded font-semibold button-hover"
               >
-                Automate Now
+                무료 상담 예약
               </button>
             </div>
 
@@ -154,7 +154,7 @@ export default function Layout({ children, currentPageName }) {
                 onClick={() => handleNavClick("Contact")}
                 className="block w-full px-4 py-2.5 bg-[#CCFF00] text-black rounded font-semibold text-center mx-4"
               >
-                Automate Now
+                무료 상담 예약
               </button>
             </div>
           )}
@@ -219,7 +219,7 @@ export default function Layout({ children, currentPageName }) {
                   onClick={() => handleNavClick("Contact")}
                   className="px-6 py-2 bg-[#CCFF00] text-black rounded font-semibold button-hover"
                 >
-                  Work With Me
+                  무료 상담 예약
                 </button>
               </div>
             </div>

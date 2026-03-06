@@ -112,16 +112,16 @@ export default function Services() {
             className="mt-12 sm:mt-20 text-center"
           >
             <Card className="bg-[#1A1A1A] border-[#333333] p-8 sm:p-12">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-[#F5F5F5]">Need a Custom Solution?</h3>
-              <p className="text-base sm:text-lg text-[#A0A0A0] mb-6 sm:mb-8 max-w-2xl mx-auto">
-                Every business is unique. Let's build an automation strategy tailored specifically to your needs.
-              </p>
-              <Link to={createPageUrl("Contact")}>
-                <button className="px-6 sm:px-8 py-3 sm:py-4 bg-[#CCFF00] text-black font-bold text-base sm:text-lg rounded button-hover">
-                  Schedule a Consultation
-                </button>
-              </Link>
-            </Card>
+               <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-[#F5F5F5]">맞춤형 솔루션이 필요하신가요?</h3>
+               <p className="text-base sm:text-lg text-[#A0A0A0] mb-6 sm:mb-8 max-w-2xl mx-auto">
+                 모든 비즈니스는 고유합니다. 귀사의 니즈에 맞춘 자동화 전략을 함께 구축해봅시다.
+               </p>
+               <Link to={createPageUrl("Contact")}>
+                 <button className="px-6 sm:px-8 py-3 sm:py-4 bg-[#CCFF00] text-black font-bold text-base sm:text-lg rounded button-hover">
+                   무료 상담 예약
+                 </button>
+               </Link>
+             </Card>
           </motion.div>
         </div>
       </section>

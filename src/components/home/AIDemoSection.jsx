@@ -34,7 +34,8 @@ export default function AIDemoSection() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            message: inputText
+            message: inputText,
+            recipient_email: "yololife.sy@gmail.com"
           }),
         }
       );
@@ -55,7 +56,7 @@ export default function AIDemoSection() {
     if (timeoutError) {
       return (
         <div className="text-[#A0A0A0] leading-relaxed">
-          Looks like my agent is taking an unscheduled coffee break! The connection timed out. Please give that another try.
+          요청 처리 중 문제가 발생했습니다. 다시 시도해주세요.
         </div>
       );
     }
@@ -65,7 +66,7 @@ export default function AIDemoSection() {
     return (
       <div className="space-y-4">
         <div>
-          <h4 className="font-bold text-[#F5F5F5] mb-2">Here's the Simple Version:</h4>
+          <h4 className="font-bold text-[#F5F5F5] mb-2">분석 결과:</h4>
           <p className="text-[#A0A0A0] leading-relaxed">
             {data.simple_explanation || data.simplified || "No simplified version available"}
           </p>
@@ -74,7 +75,7 @@ export default function AIDemoSection() {
         <hr className="border-[#333333]" />
         
         <div>
-          <h4 className="font-bold text-[#F5F5F5] mb-2">Jargon Clarified:</h4>
+          <h4 className="font-bold text-[#F5F5F5] mb-2">추천 자동화 영역:</h4>
           <div className="flex flex-wrap gap-2">
             {data.key_terms && data.key_terms.length > 0 ? (
               data.key_terms.map((term, idx) => (
@@ -106,11 +107,11 @@ export default function AIDemoSection() {
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-[#F5F5F5]">
-            Put My AI to the <span className="text-[#CCFF00]">Test</span>
+            AI 에이전트를 <span className="text-[#CCFF00]">직접 체험</span>해보세요
           </h2>
           <p className="text-base sm:text-lg text-[#A0A0A0] max-w-3xl mx-auto leading-relaxed">
-            Give me your most confusing jargon, a complex paragraph, or just random text. 
-            I'll instantly translate it into simple English. Go on, test my capabilities.
+            복잡한 업무 설명, 기술용어, 또는 자유로운 텍스트를 입력하세요. 
+            제 AI가 즉시 핵심을 분석하고 실행 가능한 전략을 제시합니다.
           </p>
         </motion.div>
 
@@ -126,10 +127,10 @@ export default function AIDemoSection() {
             <Card className="bg-[#1A1A1A] border-[#333333] p-6 sm:p-8">
               <div className="space-y-4">
                 <label className="text-base sm:text-lg font-semibold text-[#F5F5F5]">
-                  Input
+                  입력
                 </label>
                 <Textarea
-                  placeholder="Paste complex jargon or technical text here..."
+                  placeholder="여기에 작업 설명을 입력하세요..."
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
                   className="min-h-[200px] sm:min-h-[250px] bg-[#111111] border-[#333333] text-[#F5F5F5] placeholder:text-[#A0A0A0] focus:border-[#CCFF00] resize-none text-sm sm:text-base"
@@ -145,7 +146,7 @@ export default function AIDemoSection() {
                       Analyzing...
                     </>
                   ) : (
-                    "Experience My AI"
+                    "분석 시작하기"
                   )}
                 </Button>
               </div>
@@ -155,14 +156,14 @@ export default function AIDemoSection() {
             <Card className="bg-[#1A1A1A] border-[#333333] p-6 sm:p-8">
               <div className="space-y-4">
                 <label className="text-base sm:text-lg font-semibold text-[#F5F5F5]">
-                  Output
+                  분석 결과
                 </label>
                 
                 <div className="min-h-[200px] sm:min-h-[250px] space-y-4">
                   {!hasSubmitted && (
                     <div className="h-full flex items-center justify-center">
                       <p className="text-[#A0A0A0] text-center text-sm sm:text-base">
-                        Your simplified results will appear here...
+                        분석 결과가 여기에 나타납니다...
                       </p>
                     </div>
                   )}

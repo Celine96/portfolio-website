@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -59,7 +58,10 @@ export default function Contact() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify({
+            ...formData,
+            recipient_email: "yololife.sy@gmail.com"
+          }),
         }
       );
 
@@ -201,7 +203,7 @@ export default function Contact() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Ahmer"
+                        placeholder="이름을 입력하세요"
                         className="bg-[#111111] border-[#333333] text-[#F5F5F5] placeholder:text-[#A0A0A0] focus:border-[#CCFF00] h-12"
                       />
                     </div>
@@ -217,7 +219,7 @@ export default function Contact() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="ehmar07@gmail.com"
+                        placeholder="이메일을 입력하세요"
                         className="bg-[#111111] border-[#333333] text-[#F5F5F5] placeholder:text-[#A0A0A0] focus:border-[#CCFF00] h-12"
                       />
                     </div>
@@ -263,12 +265,12 @@ export default function Contact() {
                       {isSubmitting ? (
                         <>
                           <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                          Sending...
+                          전송 중...
                         </>
                       ) : (
                         <>
                           <Send className="w-5 h-5 mr-2" />
-                          Request My AI Strategy
+                          상담 신청하기
                         </>
                       )}
                     </Button>
@@ -276,9 +278,9 @@ export default function Contact() {
                 ) : (
                   <div className="text-center py-12">
                     <CheckCircle className="w-16 h-16 text-[#CCFF00] mx-auto mb-6" />
-                    <h3 className="text-2xl font-bold mb-4 text-[#F5F5F5]">Thank you!</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-[#F5F5F5]">감사합니다!</h3>
                     <p className="text-lg text-[#A0A0A0]">
-                      I'll be in touch within 24 hours.
+                      24시간 내에 연락드리겠습니다.
                     </p>
                   </div>
                 )}
