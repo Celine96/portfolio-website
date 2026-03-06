@@ -25,7 +25,7 @@ export default function Layout({ children, currentPageName }) {
     { name: "Home", path: "Home" },
     { name: "About", path: "AboutMe" },
     { name: "Services", path: "Services" },
-    { name: "Agents", path: "Portfolio" },
+    { name: "Portfolio", path: "Portfolio" },
     { name: "ROI", path: "Tools" },
   ];
 

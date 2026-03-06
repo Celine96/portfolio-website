@@ -33,24 +33,6 @@ export default function Services() {
       title: "컨텐츠 생성",
       description: "단일 컨텐츠를 다중 플랫폼 캠페인으로 변환합니다. 모든 채널에서 브랜드 톤을 유지하는 AI 워크플로우입니다.",
     },
-    {
-      id: 4,
-      icon: Mail,
-      title: "이메일 개인화",
-      description: "행동, 특성, 참여도에 기반해 자동으로 조정되는 초개인화 이메일 시퀀스를 생성하여 전환율을 극대화합니다.",
-    },
-    {
-      id: 5,
-      icon: Users,
-      title: "클라이언트 온보딩",
-      description: "계약 서명부터 환영 시퀀스까지 전체 온보딩 프로세스를 지능형 자동화로 간소화합니다.",
-    },
-    {
-      id: 6,
-      icon: Zap,
-      title: "맞춤형 AI 개발",
-      description: "귀사의 고유한 비즈니스 니즈에 맞춘 AI 에이전트를 구축합니다. 데이터 추출부터 의사결정까지 디지털 인력을 창출합니다.",
-    },
   ];
 
   return (
@@ -73,7 +55,7 @@ export default function Services() {
           </motion.div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
@@ -116,7 +98,7 @@ export default function Services() {
                <p className="text-base sm:text-lg text-[#A0A0A0] mb-6 sm:mb-8 max-w-2xl mx-auto">
                  모든 비즈니스는 고유합니다. 귀사의 니즈에 맞춘 자동화 전략을 함께 구축해봅시다.
                </p>
-               <Link to={createPageUrl("Contact")}>
+               <Link to={createPageUrl("ConsultationBooking")}>
                  <button className="px-6 sm:px-8 py-3 sm:py-4 bg-[#CCFF00] text-black font-bold text-base sm:text-lg rounded button-hover">
                    무료 상담 예약
                  </button>
