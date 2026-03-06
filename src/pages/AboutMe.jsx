@@ -2,6 +2,8 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Target, Code2, Users, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
 
 export default function AboutMe() {
   const values = [
@@ -85,6 +87,11 @@ export default function AboutMe() {
                   현대 비즈니스를 강력하게 만드는 보이지 않는 인력을 구축합니다.
                 </p>
               </div>
+              <Link to={createPageUrl("ConsultationBooking")} onClick={() => window.scrollTo(0, 0)}>
+                <button className="px-6 py-3 bg-[#CCFF00] text-black font-bold rounded hover:bg-[#CCFF00]/90 transition-all">
+                  상담 예약하기
+                </button>
+              </Link>
             </motion.div>
           </div>
 
