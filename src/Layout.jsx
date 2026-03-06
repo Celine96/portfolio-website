@@ -118,7 +118,7 @@ export default function Layout({ children, currentPageName }) {
                 </button>
               ))}
               <button
-                onClick={() => handleNavClick("Contact")}
+                onClick={() => handleNavClick("ConsultationBooking")}
                 className="px-6 py-2.5 bg-[#CCFF00] text-black rounded font-semibold button-hover"
               >
                 무료 상담 예약
@@ -151,7 +151,7 @@ export default function Layout({ children, currentPageName }) {
                 </button>
               ))}
               <button
-                onClick={() => handleNavClick("Contact")}
+                onClick={() => handleNavClick("ConsultationBooking")}
                 className="block w-full px-4 py-2.5 bg-[#CCFF00] text-black rounded font-semibold text-center mx-4"
               >
                 무료 상담 예약
@@ -216,7 +216,7 @@ export default function Layout({ children, currentPageName }) {
               </div>
               <div className="flex justify-center">
                 <button
-                  onClick={() => handleNavClick("Contact")}
+                  onClick={() => handleNavClick("ConsultationBooking")}
                   className="px-6 py-2 bg-[#CCFF00] text-black rounded font-semibold button-hover"
                 >
                   무료 상담 예약
