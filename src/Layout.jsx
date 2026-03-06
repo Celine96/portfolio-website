@@ -206,13 +206,13 @@ export default function Layout({ children, currentPageName }) {
                   <Mail size={24} />
                 </a>
                 <a
-                  href="https://github.com/ahme-r"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#A0A0A0] hover:text-[#CCFF00] transition-colors"
-                >
-                  <Github size={24} />
-                </a>
+                   href="https://github.com/Celine96/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="text-[#A0A0A0] hover:text-[#CCFF00] transition-colors"
+                 >
+                   <Github size={24} />
+                 </a>
               </div>
               <div className="flex justify-center">
                 <button
