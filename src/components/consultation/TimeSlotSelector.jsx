@@ -37,25 +37,25 @@ export default function TimeSlotSelector({ selectedDate, onTimeSelect, selectedT
           {format(selectedDate, "yyyy년 M월 d일", { locale: ko })}의 상담 시간 선택
         </h3>
         
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
           {timeSlots.map((time) => {
             const isBooked = isTimeBooked(time);
             const isSelected = selectedTime === time;
 
             return (
               <button
-                key={time}
-                onClick={() => !isBooked && onTimeSelect(time)}
-                disabled={isBooked}
-                className={`
-                  py-2 px-3 rounded font-medium transition-colors text-sm
-                  ${isBooked ? "bg-[#FF6B6B] text-white cursor-not-allowed opacity-50" : ""}
-                  ${isSelected ? "bg-[#CCFF00] text-black" : ""}
-                  ${!isBooked && !isSelected ? "bg-[#2A2A2A] text-[#F5F5F5] hover:bg-[#3A3A3A]" : ""}
-                `}
-              >
-                {time}
-              </button>
+                 key={time}
+                 onClick={() => !isBooked && onTimeSelect(time)}
+                 disabled={isBooked}
+                 className={`
+                   py-3 px-2 sm:py-2 sm:px-3 rounded font-medium transition-colors text-xs sm:text-sm min-h-[44px] sm:min-h-auto
+                   ${isBooked ? "bg-[#FF6B6B] text-white cursor-not-allowed opacity-50" : ""}
+                   ${isSelected ? "bg-[#CCFF00] text-black" : ""}
+                   ${!isBooked && !isSelected ? "bg-[#2A2A2A] text-[#F5F5F5] hover:bg-[#3A3A3A]" : ""}
+                 `}
+               >
+                 {time}
+               </button>
             );
           })}
         </div>

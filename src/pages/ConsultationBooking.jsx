@@ -64,14 +64,34 @@ export default function ConsultationBooking() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // 필수 필드 검증
     if (!selectedDate || !selectedTime) {
-      alert("날짜와 시간을 선택해주세요");
+      setSubmitStatus("validation");
+      setTimeout(() => setSubmitStatus(null), 3000);
       return;
     }
 
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.topic.trim()) {
+      setSubmitStatus("validation");
+      setTimeout(() => setSubmitStatus(null), 3000);
+      return;
+    }
+
+    // 중복 예약 확인
     const [hours, minutes] = selectedTime.split(":");
     const bookingDateTime = new Date(selectedDate);
     bookingDateTime.setHours(parseInt(hours), parseInt(minutes), 0);
+
+    const isDuplicate = bookings.some(b => 
+      new Date(b.bookingDate).getTime() === bookingDateTime.getTime() &&
+      b.email === formData.email
+    );
+
+    if (isDuplicate) {
+      setSubmitStatus("duplicate");
+      setTimeout(() => setSubmitStatus(null), 3000);
+      return;
+    }
 
     createBookingMutation.mutate({
       ...formData,
@@ -139,6 +159,20 @@ export default function ConsultationBooking() {
                 <div className="mb-6 flex items-center gap-3 bg-red-900/30 border border-red-600 rounded-lg p-4">
                   <AlertCircle size={20} className="text-red-500" />
                   <p className="text-red-400">예약 등록 중 오류가 발생했습니다</p>
+                </div>
+              )}
+
+              {submitStatus === "validation" && (
+                <div className="mb-6 flex items-center gap-3 bg-yellow-900/30 border border-yellow-600 rounded-lg p-4">
+                  <AlertCircle size={20} className="text-yellow-500" />
+                  <p className="text-yellow-400">모든 필수 항목을 입력해주세요</p>
+                </div>
+              )}
+
+              {submitStatus === "duplicate" && (
+                <div className="mb-6 flex items-center gap-3 bg-orange-900/30 border border-orange-600 rounded-lg p-4">
+                  <AlertCircle size={20} className="text-orange-500" />
+                  <p className="text-orange-400">이미 예약된 시간입니다. 다른 시간을 선택해주세요</p>
                 </div>
               )}
 
@@ -230,7 +264,7 @@ export default function ConsultationBooking() {
                       </select>
                     </div>
                     <div>
-                      <Label className="text-[#F5F5F5] mb-2 block">상담 주제</Label>
+                      <Label className="text-[#F5F5F5] mb-2 block">상담 주제 *</Label>
                       <Input
                         type="text"
                         name="topic"
@@ -238,6 +272,7 @@ export default function ConsultationBooking() {
                         onChange={handleInputChange}
                         placeholder="예: 리드 생성 자동화"
                         className="bg-[#111111] border-[#333333] text-[#F5F5F5]"
+                        required
                       />
                     </div>
                   </div>
