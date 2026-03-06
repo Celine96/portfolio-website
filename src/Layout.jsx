@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { base44 } from "@/api/base44Client";
-import { Menu, X, Linkedin, Mail, Github } from "lucide-react";
+import { Menu, X, Linkedin, Github } from "lucide-react";
 
 export default function Layout({ children, currentPageName }) {
   const location = useLocation();
@@ -242,12 +242,6 @@ export default function Layout({ children, currentPageName }) {
                  >
                    <Linkedin size={24} />
                  </a>
-                <a
-                  href="mailto:ehmar07@gmail.com"
-                  className="text-[#A0A0A0] hover:text-[#CCFF00] transition-colors"
-                >
-                  <Mail size={24} />
-                </a>
                 <a
                    href="https://github.com/Celine96/"
                    target="_blank"
