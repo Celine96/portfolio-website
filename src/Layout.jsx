@@ -99,7 +99,7 @@ export default function Layout({ children, currentPageName }) {
               onClick={() => window.scrollTo(0, 0)}
               className="text-xl font-bold tracking-tight text-[#F5F5F5] hover:text-[#CCFF00] transition-colors"
             >
-              AHMER<span className="text-[#CCFF00]">.</span>
+              이수연<span className="text-[#CCFF00]">.</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -169,9 +169,9 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">AHMER<span className="text-[#CCFF00]">.</span></h3>
+              <h3 className="text-xl font-bold mb-4">이수연<span className="text-[#CCFF00]">.</span></h3>
               <p className="text-[#A0A0A0] text-sm leading-relaxed">
-                AI Automation Expert for high-growth businesses. Building intelligent systems that scale.
+                AI 시스템 자동화 | 부동산 | 커뮤니티 | 삶의 본질에서 연결과 커뮤니티 생태계 선기능의 가치를 사람합니다.
               </p>
             </div>
             <div>
@@ -225,7 +225,7 @@ export default function Layout({ children, currentPageName }) {
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-[#333333] text-center text-sm text-[#A0A0A0]">
-            © {new Date().getFullYear()} Ahmer. All rights reserved.
+            © {new Date().getFullYear()} 이수연. All rights reserved.
           </div>
         </div>
       </footer>
