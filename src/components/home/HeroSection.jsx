@@ -81,7 +81,7 @@ export default function HeroSection() {
             <div className="relative z-10 flex justify-center" style={{ zIndex: 2 }}>
               <div className="relative">
                 <img
-                   src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69aaed02157675c99ba2b0bb/18c6fdf50_image.png"
+                   src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69aaed02157675c99ba2b0bb/620b3e650_image.png"
                    alt="이수연"
                    className="w-72 h-auto sm:w-80 md:w-96 lg:w-[450px] object-cover object-top"
                    style={{

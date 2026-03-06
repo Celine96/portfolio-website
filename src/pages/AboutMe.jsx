@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -56,8 +55,8 @@ export default function AboutMe() {
               className="flex justify-center order-2 lg:order-1"
             >
               <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6904e61633b19b2507b45d09/95478b140_referenceimage22.png"
-                alt="Ahmer"
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69aaed02157675c99ba2b0bb/620b3e650_image.png"
+                alt="이수연"
                 className="w-full max-w-md rounded-lg"
               />
             </motion.div>
