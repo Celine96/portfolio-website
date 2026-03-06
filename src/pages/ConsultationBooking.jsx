@@ -50,7 +50,7 @@ export default function ConsultationBooking() {
       // 관리자에게 이메일 발송
       await base44.functions.invoke('sendBookingNotification', {
         booking: bookingData,
-        recipientEmail: 'ehmar07@gmail.com',
+        recipientEmail: 'yololife.sy@gmail.com',
         recipientType: 'admin',
         actionType: 'created'
       });
