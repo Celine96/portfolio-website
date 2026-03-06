@@ -151,7 +151,10 @@ export default function Layout({ children, currentPageName }) {
                 </button>
               ))}
               <button
-                onClick={() => handleNavClick("ConsultationBooking")}
+                onClick={() => {
+                  handleNavClick("ConsultationBooking");
+                  setIsMobileMenuOpen(false);
+                }}
                 className="block w-full px-4 py-2.5 bg-[#CCFF00] text-black rounded font-semibold text-center mx-4"
               >
                 무료 상담 예약

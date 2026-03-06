@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Target, Code2, Users, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
+import ImageWithFallback from "../components/consultation/ImageWithFallback";
 
 export default function AboutMe() {
   const values = [
@@ -56,7 +57,7 @@ export default function AboutMe() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex justify-center order-2 lg:order-1"
             >
-              <img
+              <ImageWithFallback
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69aaed02157675c99ba2b0bb/620b3e650_image.png"
                 alt="이수연"
                 className="w-full max-w-md rounded-lg"

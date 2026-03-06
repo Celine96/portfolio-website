@@ -28,8 +28,10 @@ export default function BookingCalendar({ onDateSelect, selectedDate, bookedTime
   };
 
   const isDateAvailable = (date) => {
-    return isSameMonth(date, currentDate) && !isBefore(date, today);
-  };
+     // 오늘 또는 이후, 그리고 현재 월에 속하는 날짜
+     const isBeforeToday = isBefore(date, today);
+     return isSameMonth(date, currentDate) && !isBeforeToday;
+   };
 
   const weekDays = ["일", "월", "화", "수", "목", "금", "토"];
 

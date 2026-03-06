@@ -13,44 +13,57 @@ export default function AIDemoSection() {
   const [timeoutError, setTimeoutError] = useState(false);
 
   const handleAnalyze = async () => {
-    if (!inputText.trim()) return;
-    
-    setIsAnalyzing(true);
-    setResult(null);
-    setHasSubmitted(true);
-    setTimeoutError(false);
-    
-    const timeoutId = setTimeout(() => {
-      setTimeoutError(true);
-      setIsAnalyzing(false);
-    }, 15000);
-    
-    try {
-      const response = await fetch(
-        "https://nonartistic-painedly-damien.ngrok-free.dev/webhook/8edac9c6-26d1-4436-ae61-99e9296ed84b",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            message: inputText,
-            recipient_email: "yololife.sy@gmail.com"
-          }),
-        }
-      );
+     if (!inputText.trim()) return;
 
-      clearTimeout(timeoutId);
-      const data = await response.json();
-      setResult(data);
-    } catch (error) {
-      clearTimeout(timeoutId);
-      console.error("Error analyzing:", error);
-      setTimeoutError(true);
-    } finally {
-      setIsAnalyzing(false);
-    }
-  };
+     setIsAnalyzing(true);
+     setResult(null);
+     setHasSubmitted(true);
+     setTimeoutError(false);
+
+     const timeoutId = setTimeout(() => {
+       setTimeoutError(true);
+       setIsAnalyzing(false);
+     }, 15000);
+
+     try {
+       const controller = new AbortController();
+       const abortTimeoutId = setTimeout(() => controller.abort(), 15000);
+
+       const response = await fetch(
+         "https://nonartistic-painedly-damien.ngrok-free.dev/webhook/8edac9c6-26d1-4436-ae61-99e9296ed84b",
+         {
+           method: "POST",
+           headers: {
+             "Content-Type": "application/json",
+           },
+           body: JSON.stringify({
+             message: inputText,
+             recipient_email: "yololife.sy@gmail.com"
+           }),
+           signal: controller.signal
+         }
+       );
+
+       clearTimeout(abortTimeoutId);
+       clearTimeout(timeoutId);
+
+       if (!response.ok) {
+         setTimeoutError(true);
+         setIsAnalyzing(false);
+         return;
+       }
+
+       const data = await response.json();
+       setResult(data);
+       setTimeoutError(false);
+     } catch (error) {
+       clearTimeout(timeoutId);
+       console.error("Error analyzing:", error);
+       setTimeoutError(true);
+     } finally {
+       setIsAnalyzing(false);
+     }
+   };
 
   const renderResult = (data) => {
     if (timeoutError) {
