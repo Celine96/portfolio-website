@@ -26,12 +26,12 @@ export default function ROICalculator() {
   const calculateSavings = () => {
     const dailyMinutes = dailyReps * minutesPerTask;
     const dailyHours = dailyMinutes / 60;
-    const dailyCost = dailyHours * hourlyCost;
+    const dailyCost = dailyHours * hourlyCost * 1000;
     const annualCost = dailyCost * 250;
     const annualHours = dailyHours * 250;
-    
+
     return {
-      dailyCost: dailyCost.toFixed(2),
+      dailyCost: dailyCost.toFixed(0),
       annualCost: annualCost.toFixed(0),
       annualHours: annualHours.toFixed(0),
       dailyHours: dailyHours.toFixed(1),
@@ -103,8 +103,8 @@ export default function ROICalculator() {
               {/* Input 3 */}
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                   <Label className="text-sm sm:text-base font-medium text-[#F5F5F5]">시급 (USD)</Label>
-                   <span className="text-xl sm:text-2xl font-bold text-[#CCFF00]">${hourlyCost.toLocaleString()}</span>
+                   <Label className="text-sm sm:text-base font-medium text-[#F5F5F5]">시급 (₩)</Label>
+                   <span className="text-xl sm:text-2xl font-bold text-[#CCFF00]">₩{(hourlyCost * 1000).toLocaleString()}</span>
                  </div>
                  <Slider
                    value={[hourlyCost]}
@@ -136,7 +136,7 @@ export default function ROICalculator() {
                   <div className="text-center">
                      <p className="text-[#A0A0A0] mb-3 text-sm sm:text-base">연간 절감 가능액</p>
                      <p className="text-5xl sm:text-6xl md:text-7xl font-black text-[#CCFF00] mb-4">
-                       ${parseInt(savings.annualCost).toLocaleString()}
+                       ₩{parseInt(savings.annualCost).toLocaleString()}
                      </p>
                      <p className="text-lg sm:text-xl text-[#F5F5F5]">
                        즉, 연간 <span className="font-bold text-[#CCFF00]">{savings.annualHours}</span>시간을 절감합니다
@@ -146,7 +146,7 @@ export default function ROICalculator() {
                   {/* Additional Metrics */}
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <Card className="bg-[#111111] border-[#333333] p-4 sm:p-6 text-center">
-                        <p className="text-2xl sm:text-3xl font-bold mb-2 text-[#F5F5F5]">${parseFloat(savings.dailyCost).toLocaleString()}</p>
+                        <p className="text-2xl sm:text-3xl font-bold mb-2 text-[#F5F5F5]">₩{parseInt(savings.dailyCost).toLocaleString()}</p>
                         <p className="text-xs sm:text-sm text-[#A0A0A0]">일일 비용</p>
                       </Card>
                       <Card className="bg-[#111111] border-[#333333] p-4 sm:p-6 text-center">
