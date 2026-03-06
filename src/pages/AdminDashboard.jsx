@@ -140,44 +140,42 @@ export default function AdminDashboard() {
               <div className="p-8 text-center text-[#A0A0A0]">상담 예약이 없습니다</div>
             ) : (
               <div className="overflow-x-auto">
-                <table className="w-full text-sm">
+                <table className="w-full text-xs sm:text-sm">
                   <thead>
                     <tr className="border-b border-[#333333] bg-[#111111]">
-                      <th className="px-4 sm:px-6 py-4 text-left text-[#A0A0A0] font-semibold">이름</th>
-                      <th className="px-4 sm:px-6 py-4 text-left text-[#A0A0A0] font-semibold hidden sm:table-cell">이메일</th>
-                      <th className="px-4 sm:px-6 py-4 text-left text-[#A0A0A0] font-semibold hidden md:table-cell">휴대폰</th>
-                      <th className="px-4 sm:px-6 py-4 text-left text-[#A0A0A0] font-semibold">날짜</th>
-                      <th className="px-4 sm:px-6 py-4 text-left text-[#A0A0A0] font-semibold">상태</th>
+                      <th className="px-3 sm:px-6 py-4 text-left text-[#A0A0A0] font-semibold whitespace-nowrap">이름</th>
+                      <th className="px-3 sm:px-6 py-4 text-left text-[#A0A0A0] font-semibold hidden sm:table-cell whitespace-nowrap">이메일</th>
+                      <th className="px-3 sm:px-6 py-4 text-left text-[#A0A0A0] font-semibold hidden lg:table-cell whitespace-nowrap">휴대폰</th>
+                      <th className="px-3 sm:px-6 py-4 text-left text-[#A0A0A0] font-semibold whitespace-nowrap">예약 시간</th>
+                      <th className="px-3 sm:px-6 py-4 text-left text-[#A0A0A0] font-semibold whitespace-nowrap">상태</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredBookings.map((booking, index) => (
+                    {filteredBookings.map((booking) => (
                       <tr
                         key={booking.id}
-                        className="border-b border-[#333333] hover:bg-[#111111] transition-colors"
+                        className="border-b border-[#333333] hover:bg-[#0F0F0F] transition-colors"
                       >
-                        <td className="px-4 sm:px-6 py-4">
-                          <div>
-                            <p className="text-[#F5F5F5] font-medium">{booking.name}</p>
-                            <p className="text-xs text-[#A0A0A0] sm:hidden">{booking.email}</p>
-                          </div>
+                        <td className="px-3 sm:px-6 py-5 whitespace-nowrap">
+                          <p className="text-[#F5F5F5] font-medium truncate">{booking.name}</p>
+                          <p className="text-xs text-[#A0A0A0] sm:hidden truncate">{booking.email}</p>
                         </td>
-                        <td className="px-4 sm:px-6 py-4 text-[#A0A0A0] hidden sm:table-cell">
-                          <a href={`mailto:${booking.email}`} className="hover:text-[#CCFF00] transition-colors">
+                        <td className="px-3 sm:px-6 py-5 text-[#A0A0A0] hidden sm:table-cell whitespace-nowrap">
+                          <a href={`mailto:${booking.email}`} className="hover:text-[#CCFF00] transition-colors truncate block">
                             {booking.email}
                           </a>
                         </td>
-                        <td className="px-4 sm:px-6 py-4 text-[#A0A0A0] hidden md:table-cell">
+                        <td className="px-3 sm:px-6 py-5 text-[#A0A0A0] hidden lg:table-cell whitespace-nowrap">
                           <a href={`tel:${booking.phone}`} className="hover:text-[#CCFF00] transition-colors">
                             {booking.phone}
                           </a>
                         </td>
-                        <td className="px-4 sm:px-6 py-4 text-[#A0A0A0]">
-                          {format(new Date(booking.bookingDate), "MMM d, HH:mm", { locale: ko })}
+                        <td className="px-3 sm:px-6 py-5 text-[#A0A0A0] whitespace-nowrap text-xs sm:text-sm">
+                          {format(new Date(booking.bookingDate), "MMM d HH:mm", { locale: ko })}
                         </td>
-                        <td className="px-4 sm:px-6 py-4">
+                        <td className="px-3 sm:px-6 py-5 whitespace-nowrap">
                           <span
-                            className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+                            className={`inline-block px-2 sm:px-3 py-1 rounded-full text-xs font-semibold ${
                               booking.status === "확정"
                                 ? "bg-green-500/20 text-green-400"
                                 : booking.status === "예약 대기"
@@ -200,12 +198,12 @@ export default function AdminDashboard() {
 
           {/* Detail View */}
           {filteredBookings.length > 0 && (
-            <div className="mt-8 space-y-4">
-              <h3 className="text-xl font-bold text-[#F5F5F5]">상세 정보</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="mt-12 space-y-6">
+              <h3 className="text-2xl font-bold text-[#F5F5F5]">상세 정보</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {filteredBookings.slice(0, 4).map((booking) => (
-                  <Card key={booking.id} className="bg-[#1A1A1A] border-[#333333] p-6">
-                    <div className="space-y-3">
+                  <Card key={booking.id} className="bg-[#1A1A1A] border-[#333333] p-7">
+                    <div className="space-y-5">
                       <div className="flex items-start justify-between">
                         <div>
                           <p className="text-lg font-bold text-[#F5F5F5]">{booking.name}</p>
@@ -228,32 +226,48 @@ export default function AdminDashboard() {
                         </span>
                       </div>
 
-                      <div className="space-y-2 pt-3 border-t border-[#333333]">
-                        <p className="text-sm text-[#A0A0A0] flex items-center gap-2">
-                          <Mail size={14} /> {booking.email}
-                        </p>
-                        <p className="text-sm text-[#A0A0A0] flex items-center gap-2">
-                          <Phone size={14} /> {booking.phone}
-                        </p>
-                        <p className="text-sm text-[#A0A0A0] flex items-center gap-2">
-                          <Calendar size={14} /> {format(new Date(booking.bookingDate), "PPP HH:mm", { locale: ko })}
-                        </p>
-                        <p className="text-sm text-[#A0A0A0] flex items-center gap-2">
-                          <Clock size={14} /> {booking.duration}
-                        </p>
+                      <div className="space-y-3 pt-5 border-t border-[#333333]">
+                        <div>
+                          <p className="text-xs text-[#A0A0A0] mb-1 flex items-center gap-2">
+                            <Mail size={16} /> 이메일
+                          </p>
+                          <p className="text-sm text-[#F5F5F5] ml-6">
+                            <a href={`mailto:${booking.email}`} className="hover:text-[#CCFF00]">{booking.email}</a>
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-[#A0A0A0] mb-1 flex items-center gap-2">
+                            <Phone size={16} /> 휴대폰
+                          </p>
+                          <p className="text-sm text-[#F5F5F5] ml-6">
+                            <a href={`tel:${booking.phone}`} className="hover:text-[#CCFF00]">{booking.phone}</a>
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-[#A0A0A0] mb-1 flex items-center gap-2">
+                            <Calendar size={16} /> 예약 시간
+                          </p>
+                          <p className="text-sm text-[#F5F5F5] ml-6">{format(new Date(booking.bookingDate), "PPP HH:mm", { locale: ko })}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-[#A0A0A0] mb-1 flex items-center gap-2">
+                            <Clock size={16} /> 상담 시간
+                          </p>
+                          <p className="text-sm text-[#F5F5F5] ml-6">{booking.duration}</p>
+                        </div>
                       </div>
 
                       {booking.topic && (
-                        <div className="pt-3 border-t border-[#333333]">
-                          <p className="text-xs text-[#A0A0A0] mb-1">상담 주제</p>
+                        <div className="pt-5 border-t border-[#333333]">
+                          <p className="text-xs text-[#A0A0A0] mb-2">상담 주제</p>
                           <p className="text-sm text-[#F5F5F5]">{booking.topic}</p>
                         </div>
                       )}
 
                       {booking.message && (
-                        <div className="pt-3 border-t border-[#333333]">
-                          <p className="text-xs text-[#A0A0A0] mb-1 flex items-center gap-1">
-                            <MessageSquare size={14} /> 추가 메시지
+                        <div className="pt-5 border-t border-[#333333]">
+                          <p className="text-xs text-[#A0A0A0] mb-2 flex items-center gap-2">
+                            <MessageSquare size={16} /> 추가 메시지
                           </p>
                           <p className="text-sm text-[#A0A0A0]">{booking.message}</p>
                         </div>
