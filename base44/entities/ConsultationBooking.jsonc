@@ -1,0 +1,62 @@
+{
+  "name": "ConsultationBooking",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "\uc0c1\ub2f4\uc790 \uc774\ub984"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "\uc0c1\ub2f4\uc790 \uc774\uba54\uc77c"
+    },
+    "phone": {
+      "type": "string",
+      "description": "\uc0c1\ub2f4\uc790 \ud734\ub300\ud3f0"
+    },
+    "company": {
+      "type": "string",
+      "description": "\ud68c\uc0ac\uba85"
+    },
+    "bookingDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "\uc608\uc57d \ub0a0\uc9dc \ubc0f \uc2dc\uac04"
+    },
+    "duration": {
+      "type": "string",
+      "enum": [
+        "30\ubd84",
+        "60\ubd84"
+      ],
+      "default": "30\ubd84",
+      "description": "\uc0c1\ub2f4 \uc2dc\uac04"
+    },
+    "topic": {
+      "type": "string",
+      "description": "\uc0c1\ub2f4 \uc8fc\uc81c"
+    },
+    "message": {
+      "type": "string",
+      "description": "\ucd94\uac00 \uba54\uc2dc\uc9c0"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "\uc608\uc57d \ub300\uae30",
+        "\ud655\uc815",
+        "\uc644\ub8cc",
+        "\ucde8\uc18c"
+      ],
+      "default": "\uc608\uc57d \ub300\uae30",
+      "description": "\uc608\uc57d \uc0c1\ud0dc"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "phone",
+    "bookingDate"
+  ]
+}
